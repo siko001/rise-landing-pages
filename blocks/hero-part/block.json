@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/hero-part",
+	"version": "1.0.0",
+	"title": "Hero content",
+	"category": "rise-landing",
+	"description": "A fixed content area inside the Rise Hero.",
+	"textdomain": "rise-landing-pages",
+	"parent": [ "rise-landing/hero" ],
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false,
+		"inserter": false
+	},
+	"attributes": {
+		"role": {
+			"type": "string",
+			"default": "description",
+			"enum": [
+				"eyebrow",
+				"heading",
+				"description",
+				"reassurance",
+				"actions"
+			]
+		},
+		"content": { "type": "string", "default": "" },
+		"gap": { "type": "number", "default": 0 },
+		"gapWithoutReassurance": { "type": "number", "default": 28 }
+	}
+}

@@ -1,0 +1,189 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/hero",
+	"version": "1.0.0",
+	"title": "Rise Hero",
+	"category": "rise-landing",
+	"icon": "cover-image",
+	"description": "Introduce your campaign with a headline, image and primary action.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Care built around you"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Take your next step with Rise"
+		},
+		"description": {
+			"type": "string",
+			"default": "Tell visitors how your service can help them and what they can expect."
+		},
+		"reassurance": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSecondary": { "type": "boolean" },
+		"secondaryLabel": { "type": "string", "default": "" },
+		"secondaryUrl": { "type": "string", "default": "" },
+		"secondaryNewTab": { "type": "boolean", "default": false },
+		"secondaryStyle": {
+			"type": "string",
+			"default": "outline",
+			"enum": [ "outline", "light", "dark", "accent", "custom" ]
+		},
+		"secondaryBackground": { "type": "string", "default": "#ffffff" },
+		"secondaryText": { "type": "string", "default": "#000000" },
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"mobileImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"alignment": {
+			"type": "string",
+			"default": "left",
+			"enum": [ "left", "center" ]
+		},
+		"headingLeading": {
+			"type": "number",
+			"default": 0.95
+		},
+		"gapEyebrowHeading": { "type": "number", "default": 23 },
+		"gapHeadingDescription": { "type": "number", "default": 32 },
+		"gapDescriptionReassurance": { "type": "number", "default": 30 },
+		"gapTextButtons": { "type": "number", "default": 28 },
+		"gapReassuranceButtons": { "type": "number", "default": 35 },
+		"sectionBackground": {
+			"type": "string",
+			"default": "none",
+			"enum": [ "none", "offwhite", "surface" ]
+		},
+		"mediaType": {
+			"type": "string",
+			"default": "image",
+			"enum": [ "image", "video" ]
+		},
+		"focalX": {
+			"type": "number",
+			"default": 50
+		},
+		"focalY": {
+			"type": "number",
+			"default": 50
+		},
+		"mediaFit": {
+			"type": "string",
+			"default": "cover",
+			"enum": [ "cover", "contain" ]
+		},
+		"videoMuted": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoAutoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"videoLoop": {
+			"type": "boolean",
+			"default": false
+		},
+		"videoControls": {
+			"type": "boolean",
+			"default": true
+		},
+		"captionsUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"layout": {
+			"type": "string",
+			"default": "overlay",
+			"enum": [ "split", "stacked", "overlay" ]
+		},
+		"mediaSide": {
+			"type": "string",
+			"default": "right",
+			"enum": [ "left", "right" ]
+		},
+		"minHeight": {
+			"type": "number",
+			"default": 560
+		},
+		"maxHeight": {
+			"type": "number",
+			"default": 0
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 55
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"overlayTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"mobileFocalX": {
+			"type": "number",
+			"default": 50
+		},
+		"mobileFocalY": {
+			"type": "number",
+			"default": 50
+		}
+	}
+}

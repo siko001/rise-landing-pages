@@ -1,0 +1,96 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/cta",
+	"version": "1.0.0",
+	"title": "Rise Call to Action",
+	"category": "rise-landing",
+	"icon": "megaphone",
+	"description": "Invite visitors to take the next step.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Take the next step"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Ready to get started?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Get in touch with our team to discuss the right option for you."
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"requireExplicitCta": {
+			"type": "boolean",
+			"default": false
+		},
+		"ctaNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"secondaryLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"showSecondary": {
+			"type": "boolean"
+		},
+		"secondaryUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"secondaryStyle": {
+			"type": "string",
+			"default": "outline",
+			"enum": [ "outline", "light", "dark", "accent", "custom" ]
+		},
+		"secondaryBackground": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"secondaryText": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"sectionBackground": {
+			"type": "string",
+			"default": "none",
+			"enum": [ "none", "white", "offwhite", "surface" ]
+		},
+		"headingLeading": {
+			"type": "number",
+			"default": 1.14
+		}
+	}
+}

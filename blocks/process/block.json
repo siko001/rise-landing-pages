@@ -1,0 +1,119 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/process",
+	"version": "1.0.0",
+	"title": "Rise Process",
+	"category": "rise-landing",
+	"icon": "editor-ol",
+	"description": "Explain what happens next in two to six clear steps.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "How it works"
+		},
+		"heading": {
+			"type": "string",
+			"default": "A clear path from the start"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Help visitors understand the journey before they book."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"number": "01",
+					"title": "Get in touch",
+					"description": "Tell us what you need and arrange a suitable time.",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"number": "02",
+					"title": "Meet your team",
+					"description": "Discuss your goals and the support available.",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"number": "03",
+					"title": "Make a plan",
+					"description": "Agree on the next steps together.",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"number": "04",
+					"title": "Move forward",
+					"description": "Receive guidance and ongoing support.",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				}
+			]
+		},
+		"layout": {
+			"type": "string",
+			"default": "classic",
+			"enum": [ "classic", "circle" ]
+		},
+		"circleDirection": {
+			"type": "string",
+			"default": "clockwise",
+			"enum": [ "clockwise", "anticlockwise" ]
+		},
+		"sectionBackground": {
+			"type": "string",
+			"default": "none",
+			"enum": [ "none", "white", "offwhite", "surface" ]
+		},
+		"markerMode": {
+			"type": "string",
+			"enum": [ "number", "global", "items" ]
+		},
+		"markerImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"markerSvgUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"markerImageBackground": {
+			"type": "string",
+			"default": ""
+		},
+		"headingLeading": {
+			"type": "number",
+			"default": 1.14
+		},
+		"stepTitleSize": {
+			"type": "number",
+			"default": 32
+		},
+		"cardHeadingLeading": {
+			"type": "number",
+			"default": 1.25
+		}
+	}
+}

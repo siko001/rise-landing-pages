@@ -1,0 +1,16 @@
+{
+	"extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
+	"env": { "browser": true },
+	"settings": {
+		"import/core-modules": [
+			"@wordpress/blocks",
+			"@wordpress/block-editor",
+			"@wordpress/components",
+			"@wordpress/data",
+			"@wordpress/edit-post",
+			"@wordpress/element",
+			"@wordpress/i18n",
+			"@wordpress/plugins"
+		]
+	}
+}

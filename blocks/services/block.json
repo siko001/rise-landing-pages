@@ -1,0 +1,143 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/services",
+	"version": "1.0.0",
+	"title": "Rise Services",
+	"category": "rise-landing",
+	"icon": "grid-view",
+	"description": "Show one to six services, products or programmes.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Our services"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Find the right support for you"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Introduce the services available through this campaign."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"title": "Service one",
+					"description": "Explain who this service is for and how it can help.",
+					"ctaLabel": "",
+					"ctaUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"title": "Service two",
+					"description": "Describe the support visitors can expect from your team.",
+					"ctaLabel": "",
+					"ctaUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"title": "Service three",
+					"description": "Highlight the next step towards getting started.",
+					"ctaLabel": "",
+					"ctaUrl": ""
+				}
+			]
+		},
+		"sectionBackground": {
+			"type": "string",
+			"default": "none",
+			"enum": [ "none", "offwhite", "surface" ]
+		},
+		"displayMode": {
+			"type": "string",
+			"default": "slider",
+			"enum": [ "grid", "slider" ]
+		},
+		"cardLayout": {
+			"type": "string",
+			"default": "standard",
+			"enum": [ "standard", "pricing", "image" ]
+		},
+		"imageGridAlignment": {
+			"type": "string",
+			"default": "start",
+			"enum": [ "start", "center" ]
+		},
+		"sliderShowCounter": {
+			"type": "boolean",
+			"default": true
+		},
+		"sliderLoop": {
+			"type": "boolean",
+			"default": false
+		},
+		"sliderAutoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"sliderAutoplayInterval": {
+			"type": "number",
+			"default": 5
+		},
+		"headingLeading": {
+			"type": "number",
+			"default": 1.14
+		},
+		"gridColumns": {
+			"type": "number",
+			"default": 3
+		},
+		"mobileGridColumns": {
+			"type": "number",
+			"default": 1
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 24
+		},
+		"gapEyebrowHeading": {
+			"type": "number",
+			"default": 16
+		},
+		"gapHeadingIntro": {
+			"type": "number",
+			"default": 22
+		},
+		"gapIntroCards": {
+			"type": "number",
+			"default": 42
+		},
+		"cardTextGap": {
+			"type": "number",
+			"default": 16
+		},
+		"cardHeadingLeading": {
+			"type": "number",
+			"default": 1.25
+		}
+	}
+}

@@ -1,0 +1,870 @@
+.editor-styles-wrapper .rise-lp-editor {
+	max-width: none;
+	width: 100%;
+	margin: 0;
+	position: relative;
+	min-height: 0;
+}
+
+.editor-styles-wrapper .rise-lp-editor .rise-lp__section,
+.editor-styles-wrapper .rise-lp-editor .rise-lp__hero {
+	padding-top: clamp(2rem, 5vw, 4rem);
+	padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.editor-styles-wrapper .rise-lp-editor--hidden {
+	outline: 2px dashed #757575;
+}
+
+.rise-lp-editor .rise-lp-editor__section-label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	padding: 0.2rem 0.65rem;
+	background: #1e1e1e;
+	color: #fff;
+	font:
+		11px/1.6 -apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		sans-serif;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	opacity: 0;
+}
+
+.rise-lp-editor.is-selected .rise-lp-editor__section-label,
+.rise-lp-editor:focus-within .rise-lp-editor__section-label,
+.rise-lp-editor:hover .rise-lp-editor__section-label {
+	opacity: 1;
+}
+
+.rise-lp-editor .rise-lp__button {
+	cursor: pointer;
+}
+
+.rise-lp.rise-lp--button-motion-slide.rise-lp-editor
+	.rise-lp-editor__editable-button
+	.rise-lp__button-label {
+	transform: none;
+}
+
+.rise-lp.rise-lp--button-motion-slide.rise-lp-editor
+	.rise-lp-editor__editable-button
+	.rise-lp__button-copy {
+	display: none;
+}
+
+.rise-lp-editor__button-toolbar {
+  display: grid;
+  gap: 12px;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  padding: 16px;
+}
+
+.rise-lp-editor__background-popover {
+  min-width: 240px;
+  padding: 16px;
+}
+
+.rise-lp-editor__background-popover .components-base-control {
+  margin-bottom: 0;
+}
+
+.rise-lp-editor__button-toolbar-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding-top: 12px;
+	border-top: 1px solid #ddd;
+}
+
+.rise-lp-editor__button-colours {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.rise-lp-editor .rise-lp-editor__add-button {
+	border-style: dashed;
+}
+
+.rise-lp-editor .rise-lp__service-card .rise-lp-editor__add-button {
+	margin-top: auto;
+	min-height: 50px;
+}
+
+.rise-lp-editor
+	.rise-lp__services-grid--pricing
+	.rise-lp__service-card
+	.rise-lp-editor__add-button {
+	width: 100%;
+	min-height: 41px;
+}
+
+.rise-lp-editor
+	.rise-lp__services-grid--pricing
+	.rise-lp__service-price-block
+	+ .rise-lp-editor__add-button {
+	margin-top: 0;
+}
+
+.rise-lp-editor
+	.rise-lp__services-grid--image
+	.rise-lp__service-card
+	.rise-lp-editor__add-button {
+	min-height: 45px;
+	margin-top: 10px;
+}
+
+.rise-lp-editor
+	.rise-lp__services-grid--image
+	.rise-lp__service-content:has(> .rise-lp-editor__add-button)::after {
+	display: none;
+}
+
+.rise-lp-editor .rise-lp-editor__service-badge-add,
+.rise-lp-editor .rise-lp-editor__service-badge-control {
+	position: absolute;
+	top: -12px;
+	left: 13%;
+	z-index: 3;
+}
+
+.rise-lp-editor .rise-lp-editor__service-badge-add {
+	border: 1px dashed var(--rise-primary);
+	background: #080808;
+	color: #fff;
+}
+
+.rise-lp-editor .rise-lp-editor__service-badge-control {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.rise-lp-editor .rise-lp-editor__service-badge-control .rise-lp__service-badge {
+	position: static;
+	width: 170px;
+	max-width: 100%;
+	border: 0;
+	border-radius: 0;
+	outline-offset: 2px;
+}
+
+.rise-lp-editor
+	.rise-lp-editor__service-badge-control
+	.rise-lp__service-badge::placeholder {
+	color: currentcolor;
+	opacity: 0.7;
+}
+
+.rise-lp-editor .rise-lp__service-features li {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.rise-lp-editor .rise-lp-editor__service-feature-input {
+	flex: 1;
+	min-width: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: #fff;
+	font: inherit;
+}
+
+.rise-lp-editor .rise-lp-editor__service-feature-input::placeholder {
+	color: #bcbcbc;
+}
+
+.rise-lp-editor .rise-lp-editor__service-add-feature {
+	margin-top: 18px;
+	border: 1px dashed var(--rise-primary);
+	background: transparent;
+	color: #fff;
+}
+
+.rise-lp-editor .rise-lp__cta-actions .rise-lp__actions {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 12px;
+	width: 100%;
+}
+
+.rise-lp-editor .rich-text:focus {
+	outline: 2px solid #3858e9;
+	outline-offset: 3px;
+}
+
+.rise-lp-editor__media-control {
+	margin-bottom: 1rem;
+}
+
+.rise-lp-editor__media-control .components-base-control {
+	margin-top: 0.75rem;
+}
+
+.rise-lp-editor__control-label {
+	font-weight: 600;
+}
+
+.rise-lp-editor__media-preview {
+	display: block;
+	max-width: 100%;
+	max-height: 150px;
+	object-fit: contain;
+	margin-bottom: 0.75rem;
+}
+
+.rise-lp-editor__marker-control {
+	margin: 0 0 1rem;
+}
+
+.rise-lp-editor__marker-preview {
+	display: block;
+	width: 48px;
+	height: 48px;
+	margin: 0.5rem 0;
+	object-fit: contain;
+}
+
+.rise-lp-editor__marker-control .components-base-control {
+	margin-top: 0.75rem;
+}
+
+.rise-lp-editor .rise-lp-editor__image-placeholder {
+	display: flex;
+	min-height: 280px;
+	align-items: center;
+	justify-content: center;
+	border: 1px dashed #757575;
+	border-radius: var(--rise-radius, 0);
+	background: #f0f0f0;
+	color: #1e1e1e;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-question {
+	margin: 0;
+	padding: 1.25rem 0;
+	font-family: var(--rise-font-heading, inherit);
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: var(--rise-card-heading-leading, 1.5);
+	font-style: var(--rise-heading-style, normal);
+}
+
+.rise-lp-editor__collection-content,
+.rise-lp-editor__title-row {
+	display: contents;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-title-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-title-row .rise-lp__faq-dashes {
+	height: 32px;
+}
+
+.editor-styles-wrapper .rise-lp-editor .rise-lp__benefit .rise-lp__card-title {
+	font-size: 2rem;
+}
+
+.rise-lp-editor__outline-colors {
+	width: 280px;
+	padding: 16px;
+}
+
+.rise-lp-editor .rise-lp__faq-answer {
+	display: block;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-labels {
+	margin: 12px 0 18px;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills {
+	margin: 0 0 8px;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills li {
+	display: flex;
+	align-items: center;
+	gap: 1px;
+	min-height: 22px;
+	padding: 1px 6px 1px 7px;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills .components-base-control {
+	flex: 0 0 var(--rise-pill-input-width, 28px);
+	width: var(--rise-pill-input-width, 28px);
+	margin: 0;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills .components-base-control__field {
+	margin: 0;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills input {
+	width: 100%;
+	min-width: 0;
+	height: 18px;
+	min-height: 18px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+	color: var(--rise-faq-pill-text, #fff);
+	font: inherit;
+	font-size: 11px;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills input::placeholder {
+	color: rgb(255 255 255 / 75%);
+}
+
+.rise-lp-editor__panel-shortcuts .components-button {
+	min-width: 28px;
+	height: 28px;
+	padding: 4px;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills .components-button {
+	min-width: 14px;
+	width: 14px;
+	height: 18px;
+	padding: 0;
+	color: var(--rise-faq-pill-text, #fff);
+}
+
+.rise-lp-editor .rise-lp-editor__faq-pills .components-button svg {
+	width: 12px;
+	height: 12px;
+}
+
+.rise-lp-editor .rise-lp-editor__faq-labels > .components-button {
+	color: var(--rise-faq-text, var(--rise-text));
+}
+
+.rise-lp-editor .rise-lp__hero-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rise-lp-editor .rise-lp-editor__hint {
+	font-size: 0.875rem;
+	line-height: 1.5;
+	margin-top: 1rem;
+}
+
+.rise-lp-editor .rise-lp-editor__add-item {
+	margin-top: 1.5rem;
+}
+
+.rise-lp-editor__sidebar-add-item {
+	padding: 16px;
+}
+
+.rise-lp-editor .rise-lp__benefits-layout .rise-lp-editor__add-item {
+	grid-column: 2;
+	margin-top: 0;
+}
+
+.rise-lp-editor .rise-lp__benefits-layout--right .rise-lp-editor__add-item,
+.rise-lp-editor .rise-lp__benefits-layout--center .rise-lp-editor__add-item {
+	grid-column: 1;
+}
+
+.rise-lp-editor .rise-lp__benefits-layout--center .rise-lp-editor__add-item {
+	justify-self: center;
+	width: min(100%, 720px);
+}
+
+.rise-lp-editor
+	.rise-lp__benefits-layout--items-centered
+	.rise-lp-editor__add-item {
+	text-align: center;
+}
+
+.rise-lp-editor .rise-lp__benefit--editor-hidden {
+	opacity: 0.45;
+}
+
+.rise-lp-editor .rise-lp__benefit-heading .rich-text {
+	min-width: 8rem;
+}
+
+.rise-lp-editor .rise-lp-editor__empty-benefit-title:not(:focus)::before {
+	content: attr(data-placeholder);
+}
+
+.rise-lp-editor .rise-lp-editor__empty-benefit-copy:not(:focus)::before {
+	content: attr(data-placeholder);
+}
+
+.rise-lp-editor .rise-lp-editor__empty-benefit-title:not(:focus)::before,
+.rise-lp-editor .rise-lp-editor__empty-benefit-copy:not(:focus)::before {
+	color: #757575;
+	pointer-events: none;
+}
+
+.rise-lp-editor .rise-lp__faq-layout--text .rise-lp-editor__add-item {
+	grid-column: 2;
+}
+
+@media (max-width: 767px) {
+
+	.rise-lp-editor .rise-lp__benefits-layout .rise-lp-editor__add-item,
+	.rise-lp-editor .rise-lp__faq-layout--text .rise-lp-editor__add-item {
+		grid-column: 1;
+	}
+}
+
+.rise-lp-editor__item-actions {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin-top: 1rem;
+}
+
+.rise-lp-editor__item-panel--quick-actions {
+	position: relative;
+}
+
+.rise-lp-editor__item-panel--quick-actions .components-panel__body-toggle {
+	padding-right: 138px;
+}
+
+.rise-lp-editor__panel-shortcuts {
+	position: absolute;
+	top: 16px;
+	right: 40px;
+	z-index: 1;
+	display: flex;
+	gap: 2px;
+}
+
+.rise-lp-editor .components-notice {
+	margin: 0;
+}
+
+.rise-lp-page-settings.is-opened > .components-base-control {
+	margin-bottom: 20px;
+}
+
+.rise-lp-page-settings .components-base-control__help {
+	margin-top: 8px;
+	line-height: 1.5;
+}
+
+.editor-styles-wrapper .rise-lp-chrome-preview-mount {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+}
+
+.rise-lp-chrome-preview {
+	width: 100%;
+	overflow: hidden;
+	background: #fff;
+}
+
+.rise-lp-chrome-preview__label {
+	padding: 7px 16px;
+	border-block: 1px solid #e0e0e0;
+	background: #f6f7f7;
+	color: #50575e;
+	font:
+		600 11px/1.4 -apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		sans-serif;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.rise-lp-chrome-preview iframe {
+	display: block;
+	width: 100%;
+	height: 160px;
+	border: 0;
+	pointer-events: none;
+}
+
+.rise-lp-chrome-preview__message {
+	margin: 0;
+	padding: 16px;
+	color: #50575e;
+	font-size: 13px;
+}
+
+@media (max-width: 600px) {
+
+	.rise-lp-editor .rise-lp__hero-grid,
+	.rise-lp-editor .rise-lp__process-grid,
+	.rise-lp-editor .rise-lp__benefits-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.rise-lp-editor .rise-lp-editor__spacer {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 28px;
+	border: 0;
+	background: transparent;
+	color: #fff;
+}
+
+.rise-lp-editor
+	.rise-lp__process:has(.wp-block-rise-landing-spacer)
+	.rise-lp__section-header,
+.rise-lp-editor
+	.rise-lp__services:has(.wp-block-rise-landing-spacer)
+	.rise-lp__section-header {
+	margin-bottom: 0;
+}
+
+.rise-lp-editor--separator .rise-lp__separator-track {
+	transform: none !important;
+}
+
+.editor-styles-wrapper .rise-lp-editor--separator .rise-lp__separator-text,
+.editor-styles-wrapper
+	.rise-lp-editor--separator
+	.rise-lp__separator-text[contenteditable] {
+	font-family: "F37 Judge", "F37Judge", sans-serif !important;
+	font-style: normal;
+	white-space: nowrap !important;
+	overflow-wrap: normal !important;
+	word-break: normal !important;
+}
+
+.rise-lp-editor__separator-text-control {
+	margin-bottom: 12px;
+}
+
+.rise-lp-editor--separator .rise-lp__separator-editor-fallback {
+	font-weight: 800;
+	font-size: 32px;
+}
+
+.rise-lp-editor .rise-lp-editor__spacer::before {
+	position: absolute;
+	bottom: 11px;
+	right: 0;
+	left: 0;
+	border-top: 1px dashed #858585;
+	content: "";
+}
+
+.rise-lp-editor .rise-lp-editor__spacer-resize {
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	left: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 22px;
+	padding: 0 10px;
+	border: 1px solid #6b6b6b;
+	border-radius: 999px;
+	background: #272727;
+	color: #fff;
+	font:
+		12px/1.5 -apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		sans-serif;
+	box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+	cursor: ns-resize;
+	touch-action: none;
+	transform: translateX(-50%);
+}
+
+.rise-lp-editor .rise-lp-editor__spacer-resize::after {
+	width: 12px;
+	height: 6px;
+	border-block: 2px solid currentcolor;
+	content: "";
+}
+
+.rise-lp-editor .rise-lp-editor__spacer-resize:is(:hover, :focus-visible) {
+	border-color: #3858e9;
+	outline: 2px solid #3858e9;
+	outline-offset: 1px;
+}
+
+.rise-lp-editor:focus-within .rise-lp-editor__spacer::before,
+.rise-lp-editor.is-selected .rise-lp-editor__spacer::before {
+	border-color: #3858e9;
+}
+
+.editor-styles-wrapper .rise-lp-editor .rise-lp__hero--overlay {
+	min-height: var(
+		--rise-hero-preview-height,
+		var(--rise-hero-min-height, 560px)
+	);
+	padding-block: 3rem;
+}
+
+.editor-styles-wrapper .rise-lp-editor .rise-lp__hero-content {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero--overlay
+	.rise-lp__hero-content {
+	padding-block: 0;
+}
+
+.rise-lp-editor__spacer-slot {
+	position: relative;
+	z-index: 2;
+	flex: 0 0 0;
+	width: 100%;
+	height: 0;
+	margin: 0;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button {
+	position: absolute;
+	inset-block-start: var(--rise-spacer-slot-offset, 0);
+	inset-inline-start: 0;
+	transform: translateY(-50%);
+	width: 100%;
+	height: 12px;
+	min-height: 12px;
+	padding: 0;
+	justify-content: center;
+	gap: 6px;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	opacity: 0.35;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button:is(:hover, :focus-visible) {
+	opacity: 1;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button::before,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button::after {
+	content: "";
+	flex: 1;
+	border-top: 1px solid currentcolor;
+}
+
+.rise-lp-editor__spacer-label {
+	flex-shrink: 0;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button
+	:is(svg, .dashicon) {
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+.rise-lp-editor__hero-spacer-slot {
+	--rise-spacer-slot-offset: var(
+		--rise-hero-slot-offset,
+		calc(var(--rise-hero-slot-gap, 32px) / 2)
+	);
+}
+
+.rise-lp-editor__process-spacer-slot {
+	--rise-spacer-slot-offset: -21px;
+}
+
+.rise-lp-editor__services-spacer-slot {
+	--rise-spacer-slot-offset: calc(
+		0px - var(--rise-services-cards-gap, 42px) / 2
+	);
+}
+
+@media (max-width: 767px) {
+
+	.rise-lp-editor__process-spacer-slot {
+		--rise-spacer-slot-offset: -15px;
+	}
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.block-editor-inner-blocks,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.block-editor-block-list__layout {
+	display: contents !important;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer {
+	flex: 0 0 auto;
+	width: 100%;
+	margin: 0 !important;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	> .rise-lp__eyebrow {
+	order: 1;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-eyebrow,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-eyebrow {
+	order: 2;
+	--rise-hero-slot-gap: var(--rise-hero-eyebrow-gap, 23px);
+	--rise-hero-slot-offset: calc(0px - var(--rise-hero-eyebrow-gap, 23px) / 2);
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	> .rise-lp__heading {
+	order: 3;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-heading,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-heading {
+	order: 4;
+	--rise-hero-slot-gap: var(--rise-hero-description-gap, 32px);
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	> .rise-lp__intro {
+	order: 5;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-description,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-description,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer:not([class*="rise-lp-editor--spacer-after-"]) {
+	order: 6;
+	--rise-hero-slot-gap: var(--rise-hero-reassurance-gap, 30px);
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	> .rise-lp__reassurance {
+	order: 7;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-reassurance,
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-reassurance {
+	order: 8;
+	--rise-hero-slot-gap: var(--rise-hero-reassurance-button-gap, 35px);
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	> .rise-lp__actions {
+	order: 9;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	> .rise-lp-editor__hint {
+	order: 10;
+	margin: 8px 0 0;
+}
+
+.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero--overlay.rise-lp__hero--text-only
+	.rise-lp__hero-grid {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Keep popover fields compact without changing sidebar controls. */
+.rise-lp-editor__button-toolbar > .components-base-control {
+	margin-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- This toolbar button is separate from Hero spacer controls. */
+.rise-lp-editor__button-toolbar-actions > .components-button:last-child {
+	margin-left: auto;
+}

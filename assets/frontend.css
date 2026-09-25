@@ -1,0 +1,2680 @@
+/* Rise Landing Pages: every selector is scoped to the plugin document root. */
+html.rise-lp-document:not(.lenis),
+html:has(body.rise-landing-page):not(.lenis) {
+  scroll-behavior: smooth;
+}
+
+/* Lenis 1.3.26 core styles (MIT); loaded only on Rise landing pages. */
+/* stylelint-disable selector-class-pattern -- Lenis defines these class names. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
+/* stylelint-enable selector-class-pattern */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html.rise-lp-document,
+  html:has(body.rise-landing-page) {
+    scroll-behavior: auto;
+  }
+}
+
+.rise-lp {
+  --rise-primary: #17695d;
+  --rise-secondary: #e7f0eb;
+  --rise-background: #fbfcf9;
+  --rise-surface: #fff;
+  --rise-text: #17332e;
+  --rise-muted: #56645f;
+  --rise-button-text: #fff;
+  --rise-font-heading: inherit;
+  --rise-font-body: inherit;
+  --rise-content-width: 1200px;
+  --rise-section-spacing: 88px;
+  --rise-radius: 0;
+  --rise-button-radius: 0;
+  --rise-outline-color: var(--rise-primary);
+  --rise-font-outline: var(--rise-font-heading);
+  --rise-heading-style: normal;
+  --rise-font-button: var(--rise-font-body);
+  --rise-button-style: normal;
+  --rise-button-weight: 700;
+  --rise-button-transform: uppercase;
+  --rise-border: rgba(23, 51, 46, 0.15);
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--rise-background);
+  color: var(--rise-text);
+  font-family: var(--rise-font-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: normal;
+  text-align: start;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rise-lp .rise-lp__heading,
+.rise-lp .rise-lp__card-title,
+.rise-lp .rise-lp__faq-question,
+.rise-lp .rise-lp__outline,
+.rise-lp .rise-lp__button {
+  font-synthesis: none;
+}
+
+.rise-lp .rise-lp__process-grid,
+.rise-lp .rise-lp__process-step,
+.rise-lp .rise-lp__benefits-grid,
+.rise-lp .rise-lp__benefit {
+  list-style: none;
+}
+
+.rise-lp *,
+.rise-lp *::before,
+.rise-lp *::after {
+  box-sizing: border-box;
+}
+
+.rise-lp [hidden] {
+  display: none !important;
+}
+
+.rise-lp :where(h1, h2, h3, h4, p, figure, ol, ul) {
+  margin: 0;
+  padding: 0;
+}
+
+.rise-lp img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+
+.rise-lp a {
+  color: var(--rise-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.rise-lp a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.rise-lp a:focus-visible,
+.rise-lp button:focus-visible,
+.rise-lp input:focus-visible {
+  outline: 3px solid var(--rise-primary);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 2px var(--rise-background);
+}
+
+.rise-lp :where(p, li, h1, h2, h3, a, button, address) {
+  overflow-wrap: anywhere;
+}
+
+.rise-lp .rise-lp__container {
+  width: min(var(--rise-content-width), calc(100% - 80px));
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__main {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__main:focus {
+  outline: none;
+}
+
+.rise-lp .rise-lp__section {
+  width: 100%;
+  margin: 0;
+  padding: var(--rise-section-spacing) 0;
+}
+
+.rise-lp .rise-lp__section-header {
+  max-width: 720px;
+  margin: 0 0 42px;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__eyebrow {
+  display: block;
+  margin: 0 0 16px;
+  padding: 0;
+  color: var(--rise-primary);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  font-family: var(--rise-font-body);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.rise-lp .rise-lp__heading {
+  margin: 0;
+  padding: 0;
+  color: var(--rise-text);
+  font-family: var(--rise-font-heading);
+  font-size: 4rem;
+  font-style: var(--rise-heading-style);
+  font-weight: 600;
+  line-height: var(--rise-section-heading-leading, 1.14);
+  letter-spacing: -0.035em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.rise-lp .rise-lp__intro {
+  max-width: 640px;
+  margin: 22px 0 0;
+  color: var(--rise-muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.rise-lp .rise-lp__intro p,
+.rise-lp .rise-lp__card-copy p,
+.rise-lp .rise-lp__faq-answer p {
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__intro > :last-child,
+.rise-lp .rise-lp__card-copy > :last-child,
+.rise-lp .rise-lp__faq-answer > :last-child {
+  margin-bottom: 0;
+}
+
+.rise-lp .rise-lp__intro :where(ul, ol),
+.rise-lp .rise-lp__card-copy :where(ul, ol),
+.rise-lp .rise-lp__faq-answer :where(ul, ol) {
+  margin: 0.7em 0;
+  padding-inline-start: 1.5em;
+  list-style-position: outside;
+}
+
+.rise-lp .rise-lp__intro ul,
+.rise-lp .rise-lp__card-copy ul,
+.rise-lp .rise-lp__faq-answer ul {
+  list-style-type: disc;
+}
+
+.rise-lp .rise-lp__intro ol,
+.rise-lp .rise-lp__card-copy ol,
+.rise-lp .rise-lp__faq-answer ol {
+  list-style-type: decimal;
+}
+
+.rise-lp .rise-lp__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  max-width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding: 13px 23px;
+  border: 1px solid var(--rise-primary);
+  border-radius: var(--rise-button-radius);
+  background: var(--rise-primary);
+  box-shadow: none;
+  color: var(--rise-button-text);
+  font-family: var(--rise-font-button);
+  font-size: 19px;
+  font-style: var(--rise-button-style);
+  font-weight: var(--rise-button-weight);
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: center;
+  text-decoration: none;
+  text-transform: var(--rise-button-transform);
+  white-space: normal;
+  cursor: pointer;
+  transition: opacity 0.16s ease;
+}
+
+.rise-lp .rise-lp__button:hover {
+  color: var(--rise-button-text);
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+.rise-lp .rise-lp__button::before,
+.rise-lp .rise-lp__button::after {
+  display: none;
+}
+
+.rise-lp .rise-lp__button--secondary {
+  background: transparent;
+  color: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__button--secondary:hover {
+  color: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--rise-secondary);
+  color: var(--rise-primary);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.rise-lp .rise-lp__header {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--rise-border);
+  background: var(--rise-surface);
+}
+
+.rise-lp .rise-lp__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 94px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.rise-lp .rise-lp__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 260px;
+  color: var(--rise-primary);
+  text-decoration: none;
+}
+
+.rise-lp .rise-lp__brand-name {
+  font-family: var(--rise-font-heading);
+  font-size: clamp(24px, 3vw, 31px);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.rise-lp .rise-lp__logo {
+  display: block;
+  width: auto;
+  max-width: 240px;
+  max-height: 62px;
+  height: auto;
+  object-fit: contain;
+}
+
+.rise-lp .rise-lp__logo--preset-fitness {
+  height: 62px;
+}
+
+.rise-lp .rise-lp__header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  min-width: 0;
+}
+
+.rise-lp .rise-lp__nav-link {
+  color: var(--rise-text);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.rise-lp .rise-lp__nav-link:hover {
+  text-decoration: underline;
+}
+
+.rise-lp .rise-lp__hero {
+  padding-top: 56px;
+  padding-bottom: 64px;
+  background: var(--rise-background);
+}
+
+.rise-lp .rise-lp__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(36px, 5vw, 76px);
+}
+
+.rise-lp .rise-lp__hero-content {
+  min-width: 0;
+  padding: 32px 0;
+}
+
+.rise-lp .rise-lp__hero .rise-lp__heading {
+  font-size: 4rem;
+  line-height: var(--rise-hero-leading, 0.95);
+  letter-spacing: 0;
+}
+
+.rise-lp .rise-lp__hero .rise-lp__eyebrow {
+  margin-bottom: var(--rise-hero-eyebrow-gap, 23px);
+}
+
+.rise-lp .rise-lp__hero .rise-lp__intro {
+  max-width: 510px;
+  margin-top: var(--rise-hero-description-gap, 32px);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.rise-lp .rise-lp__hero .rise-lp__reassurance {
+  display: block;
+  margin: var(--rise-hero-reassurance-gap, 30px) 0 0;
+  color: var(--rise-text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.rise-lp .rise-lp__reassurance p {
+  margin: 0;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__hero-media {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  border-radius: var(--rise-radius);
+  background: var(--rise-secondary);
+  aspect-ratio: 1 / 1.07;
+}
+
+.rise-lp .rise-lp__hero-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rise-lp .rise-lp__hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rise-lp .rise-lp__hero-media img.rise-lp__hero-image {
+  position: absolute;
+  inset: 0;
+}
+
+.rise-lp .rise-lp__hero--text-only .rise-lp__hero-grid {
+  grid-template-columns: minmax(0, 850px);
+}
+
+.rise-lp .rise-lp__hero--text-only .rise-lp__hero-content {
+  padding: 38px 0;
+}
+
+.rise-lp .rise-lp__hero--center .rise-lp__hero-content {
+  text-align: center;
+}
+
+.rise-lp .rise-lp__hero--center .rise-lp__intro {
+  margin-inline: auto;
+}
+
+.rise-lp .rise-lp__hero--center .rise-lp__reassurance {
+  justify-content: center;
+}
+
+.rise-lp .rise-lp__services {
+  border-top: 1px solid var(--rise-border);
+}
+
+.rise-lp .rise-lp__services .rise-lp__section-header {
+  margin-bottom: var(--rise-services-cards-gap, 42px);
+}
+
+.rise-lp .rise-lp__services .rise-lp__eyebrow {
+  margin-bottom: var(--rise-services-eyebrow-gap, 16px);
+}
+
+.rise-lp .rise-lp__services .rise-lp__intro {
+  margin-top: var(--rise-services-intro-gap, 22px);
+}
+
+.rise-lp .rise-lp__services-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--rise-services-columns, 3), minmax(0, 1fr));
+  gap: var(--rise-services-grid-gap, 24px);
+}
+
+.rise-lp .rise-lp__service-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--rise-border);
+  border-radius: var(--rise-radius);
+  background: var(--rise-surface);
+}
+
+.rise-lp .rise-lp__service-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.rise-lp .rise-lp__service-media::after {
+  position: absolute;
+  inset: 0;
+  background: var(--rise-service-overlay-color, #000);
+  content: "";
+  opacity: var(--rise-service-overlay-opacity, 0);
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__service-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rise-lp .rise-lp__service-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--rise-services-card-text-gap, 16px);
+  padding: 31px;
+}
+
+.rise-lp .rise-lp__card-title {
+  margin: 0;
+  padding: 0;
+  color: var(--rise-text);
+  font-family: var(--rise-font-heading);
+  font-size: 2rem;
+  font-style: var(--rise-heading-style);
+  font-weight: 600;
+  line-height: var(--rise-card-heading-leading, 1.25);
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.rise-lp .rise-lp__card-copy {
+  margin: 0;
+  color: var(--rise-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.rise-lp .rise-lp__service-card .rise-lp__button {
+  margin-top: auto;
+  padding: 11px 17px;
+  font-size: 19px;
+}
+
+.rise-lp .rise-lp__hero .rise-lp__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: var(--rise-hero-button-gap, 28px); }
+
+.rise-lp .rise-lp__hero--center .rise-lp__actions { justify-content: center; }
+
+.rise-lp .rise-lp__hero .rise-lp__reassurance + .rise-lp__actions { margin-top: var(--rise-hero-reassurance-button-gap, 35px); }
+
+.rise-lp .rise-lp__service-card .rise-lp__card-copy {
+  margin-bottom: 12px;
+}
+
+.rise-lp .rise-lp__services-grid:has(> :only-child) {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 650px;
+}
+
+.rise-lp .rise-lp__services-grid:has(> :nth-child(2):last-child) {
+  max-width: none;
+}
+
+.rise-lp .rise-lp__process {
+  background: var(--rise-secondary);
+}
+
+.rise-lp .rise-lp__process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rise-lp .rise-lp__process-step {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 25px;
+  border: 1px solid var(--rise-primary);
+  border-radius: 50%;
+  color: var(--rise-primary);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.rise-lp .rise-lp__step-image {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 25px;
+  object-fit: contain;
+}
+
+.rise-lp .rise-lp__process-step .rise-lp__card-title {
+  margin-bottom: 12px;
+  font-size: var(--rise-process-step-title-size, 32px);
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__card-title,
+.rise-lp .rise-lp__process-grid--circle .rise-lp__card-copy {
+  overflow-wrap: anywhere;
+}
+
+.rise-lp .rise-lp__process-grid:not(.rise-lp__process-grid--circle):has(> :nth-child(5)),
+.rise-lp .rise-lp__process-grid:not(.rise-lp__process-grid--circle):has(> :nth-child(6)),
+.rise-lp .rise-lp__process-grid:not(.rise-lp__process-grid--circle):has(> :nth-child(3):last-child) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rise-lp .rise-lp__process-grid:not(.rise-lp__process-grid--circle):has(> :nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.rise-lp .rise-lp__benefits-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: 80px;
+}
+
+.rise-lp .rise-lp__benefits-layout .rise-lp__section-header {
+  margin-bottom: 0;
+}
+
+.rise-lp .rise-lp__benefits-layout--right .rise-lp__section-header {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rise-lp .rise-lp__benefits-layout--center {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 42px;
+}
+
+.rise-lp .rise-lp__benefits-layout--center .rise-lp__section-header {
+  width: 100%;
+  text-align: center;
+}
+
+.rise-lp .rise-lp__benefits-grid {
+  display: grid;
+  gap: 27px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rise-lp .rise-lp__benefits-layout--right .rise-lp__benefits-grid {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.rise-lp .rise-lp__benefits-layout--center .rise-lp__benefits-grid {
+  width: min(100%, 720px);
+}
+
+.rise-lp .rise-lp__benefits-layout--items-centered .rise-lp__benefits-grid {
+  justify-items: stretch;
+}
+
+.rise-lp .rise-lp__benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.rise-lp .rise-lp__benefits-layout--items-centered .rise-lp__benefit {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.rise-lp .rise-lp__benefit .rise-lp__card-title {
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+.rise-lp .rise-lp__benefit .rise-lp__check {
+  margin-top: 2px;
+}
+
+.rise-lp .rise-lp__benefit-number {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rise-lp .rise-lp__benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+}
+
+.rise-lp .rise-lp__benefit-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rise-lp .rise-lp__benefit-heading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.rise-lp .rise-lp__benefits-layout--items-centered .rise-lp__benefit-heading .rise-lp__card-title {
+  margin-bottom: 0;
+}
+
+.rise-lp .rise-lp__benefit-heading .rise-lp__check,
+.rise-lp .rise-lp__benefit-heading .rise-lp__benefit-icon {
+  margin-top: 0;
+}
+
+.rise-lp .rise-lp__faq {
+  background: var(--rise-surface);
+}
+
+.rise-lp .rise-lp__faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: 80px;
+}
+
+.rise-lp .rise-lp__faq-layout .rise-lp__section-header {
+  margin-bottom: 0;
+}
+
+.rise-lp .rise-lp__faq-content {
+  min-width: 0;
+}
+
+.rise-lp .rise-lp__faq-media {
+  position: sticky;
+  top: 24px;
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.rise-lp .rise-lp__faq-layout--text .rise-lp__faq-content {
+  display: contents;
+}
+
+.rise-lp .rise-lp__faq-layout--media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.rise-lp .rise-lp__faq-layout--media-left .rise-lp__faq-media,
+.rise-lp .rise-lp__faq-layout--media-right .rise-lp__faq-content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.rise-lp .rise-lp__faq-layout--media-left .rise-lp__faq-content,
+.rise-lp .rise-lp__faq-layout--media-right .rise-lp__faq-media {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rise-lp .rise-lp__faq-layout--media .rise-lp__section-header {
+  margin-bottom: 32px;
+}
+
+.rise-lp .rise-lp__faq-media-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.rise-lp .rise-lp__faq-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rise-lp .rise-lp__faq-image-tile {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__faq-list {
+  min-width: 0;
+  border-top: 1px solid var(--rise-border);
+}
+
+.rise-lp .rise-lp__faq-item {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--rise-border);
+}
+
+.rise-lp .rise-lp__faq-heading {
+  margin: 0;
+  padding: 0;
+  font-family: var(--rise-font-heading);
+  line-height: 1.4;
+}
+
+.rise-lp .rise-lp__faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-height: 76px;
+  margin: 0;
+  padding: 23px 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--rise-text);
+  font-family: var(--rise-font-heading);
+  font-size: 2rem;
+  font-style: var(--rise-heading-style);
+  font-weight: 600;
+  line-height: var(--rise-card-heading-leading, 1.5);
+  letter-spacing: -0.01em;
+  text-align: start;
+  text-transform: none;
+  cursor: pointer;
+  appearance: none;
+  transition: color 0.25s ease;
+}
+
+.rise-lp .rise-lp__faq-question:hover,
+.rise-lp .rise-lp__faq-question:focus-visible {
+  color: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__faq-question::before,
+.rise-lp .rise-lp__faq-question::after {
+  display: none;
+}
+
+.rise-lp .rise-lp__faq-question-label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.rise-lp .rise-lp__faq-dashes {
+  display: block;
+  flex: 0 0 138px;
+  width: 138px;
+  height: 32px;
+  overflow: visible;
+}
+
+.rise-lp .rise-lp__faq-dashes path {
+  fill: var(--rise-faq-muted, var(--rise-muted));
+  opacity: 0.6;
+  transition: fill 0.28s ease, opacity 0.28s ease;
+  transition-delay: calc(var(--rise-dash-index) * 45ms);
+}
+
+.rise-lp .rise-lp__faq-item--preview-active .rise-lp__faq-dashes path,
+.rise-lp .rise-lp__faq-question[aria-expanded="true"] .rise-lp__faq-dashes path {
+  fill: var(--rise-faq-accent, var(--rise-primary));
+  opacity: 1;
+}
+
+.rise-lp .rise-lp__faq-indicator {
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--rise-faq-accent, var(--rise-primary));
+  transform: rotate(0deg);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rise-lp .rise-lp__faq-indicator::before,
+.rise-lp .rise-lp__faq-indicator::after {
+  position: absolute;
+  top: 8px;
+  left: 1px;
+  width: 16px;
+  height: 2px;
+  background: currentcolor;
+  content: "";
+}
+
+.rise-lp .rise-lp__faq-indicator::after {
+  transform: rotate(90deg);
+}
+
+.rise-lp .rise-lp__faq-question[aria-expanded="true"] .rise-lp__faq-indicator {
+  transform: rotate(405deg);
+}
+
+.rise-lp .rise-lp__faq-answer {
+  margin: 0;
+  padding: 0;
+  color: var(--rise-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.rise-lp .rise-lp__faq-answer-inner {
+  padding: 0 42px 25px 2px;
+}
+
+.rise-lp .rise-lp__faq-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rise-lp .rise-lp__faq-pills li {
+  margin: 0;
+  padding: 4px 11px;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  background: var(--rise-faq-accent, var(--rise-primary));
+  color: var(--rise-faq-pill-text, #fff);
+  font-family: var(--rise-font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.rise-lp .rise-lp__cta {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.rise-lp .rise-lp__cta-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 58px;
+  border-radius: var(--rise-radius);
+  background: var(--rise-secondary);
+}
+
+.rise-lp .rise-lp__cta-copy {
+  flex: 1 1 600px;
+  min-width: 0;
+}
+
+.rise-lp .rise-lp__cta .rise-lp__heading {
+  font-size: 4rem;
+}
+
+.rise-lp .rise-lp__cta .rise-lp__intro {
+  margin-top: 18px;
+}
+
+.rise-lp .rise-lp__cta-actions {
+  display: flex;
+  flex: 0 1 280px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.rise-lp .rise-lp__footer {
+  margin: 0;
+  padding: 58px 0 26px;
+  border-top: 1px solid var(--rise-border);
+  background: var(--rise-surface);
+  color: var(--rise-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.rise-lp .rise-lp__footer-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 48px;
+}
+
+.rise-lp .rise-lp__footer-grid--multiple {
+  flex-direction: column;
+  gap: 32px;
+}
+
+.rise-lp .rise-lp__footer-companies {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 40px;
+  width: 100%;
+}
+
+.rise-lp .rise-lp__footer-company {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rise-lp .rise-lp__footer-brand {
+  max-width: 530px;
+}
+
+.rise-lp .rise-lp__company-details {
+  margin-top: 22px;
+}
+
+.rise-lp .rise-lp__footer-contact {
+  min-width: 200px;
+  max-width: 430px;
+}
+
+.rise-lp .rise-lp__footer-heading {
+  margin: 0 0 15px;
+  padding: 0;
+  color: var(--rise-text);
+  font-family: var(--rise-font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rise-lp .rise-lp__address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  font-style: normal;
+}
+
+.rise-lp .rise-lp__address a {
+  color: var(--rise-muted);
+}
+
+.rise-lp .rise-lp__address .rise-lp__map-link {
+  color: var(--rise-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+
+  .rise-lp .rise-lp__footer-companies {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+
+  .rise-lp .rise-lp__footer-companies {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.rise-lp .rise-lp__footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rise-border);
+}
+
+.rise-lp .rise-lp__copyright {
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.rise-lp .rise-lp__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 25px;
+}
+
+.rise-lp .rise-lp__footer-links a {
+  color: var(--rise-muted);
+  font-size: 13px;
+}
+
+.rise-lp .rise-lp__page-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: var(--rise-content-width);
+  margin: 20px auto;
+  padding: 0 24px;
+}
+
+.rise-lp .post-password-form {
+  max-width: 680px;
+  margin: 60px auto;
+  padding: 24px;
+}
+
+.rise-lp .post-password-form p {
+  margin-bottom: 20px;
+}
+
+.rise-lp .post-password-form input {
+  max-width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--rise-border);
+  border-radius: var(--rise-button-radius);
+  font: inherit;
+}
+
+.rise-lp .post-password-form input[type="submit"] {
+  border-color: var(--rise-primary);
+  background: var(--rise-primary);
+  color: var(--rise-button-text);
+  cursor: pointer;
+}
+
+.rise-lp .rise-lp__sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.rise-lp .rise-lp__skip-link {
+  position: absolute;
+  z-index: 100000;
+  top: 8px;
+  left: 8px;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip-path: inset(50%);
+  background: var(--rise-primary);
+  color: var(--rise-button-text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.rise-lp .rise-lp__skip-link:focus {
+  width: auto;
+  height: auto;
+  padding: 12px 18px;
+  border-radius: var(--rise-button-radius);
+  clip-path: none;
+}
+
+@media (max-width: 1439px) {
+
+  .rise-lp .rise-lp__services-grid {
+    grid-template-columns: repeat(min(var(--rise-services-columns, 3), 5), minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1199px) {
+
+  .rise-lp .rise-lp__services-grid {
+    grid-template-columns: repeat(min(var(--rise-services-columns, 3), 4), minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1023px) {
+
+  .rise-lp .rise-lp__container {
+    width: calc(100% - 56px);
+  }
+
+  .rise-lp .rise-lp__section {
+    padding-top: calc(var(--rise-section-spacing) * 0.8);
+    padding-bottom: calc(var(--rise-section-spacing) * 0.8);
+  }
+
+  .rise-lp .rise-lp__hero-grid {
+    gap: 34px;
+  }
+
+  .rise-lp .rise-lp__hero-content {
+    padding: 8px 0;
+  }
+
+  .rise-lp .rise-lp__hero-media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .rise-lp .rise-lp__services-grid {
+    grid-template-columns: repeat(min(var(--rise-services-columns, 3), 3), minmax(0, 1fr));
+  }
+
+  .rise-lp .rise-lp__service-content {
+    padding: 26px;
+  }
+
+  .rise-lp .rise-lp__process-grid,
+  .rise-lp .rise-lp__process-grid:not(.rise-lp__process-grid--circle):has(> :nth-child(n)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px;
+  }
+
+  .rise-lp .rise-lp__benefits-layout,
+  .rise-lp .rise-lp__faq-layout {
+    gap: 38px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .rise-lp .rise-lp__benefits-layout--center {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rise-lp .rise-lp__cta-panel {
+    gap: 28px;
+    padding: 38px;
+  }
+
+  .rise-lp .rise-lp__cta-actions {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .rise-lp .rise-lp__services-grid {
+    grid-template-columns: repeat(min(var(--rise-services-columns, 3), 2), minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+
+  .rise-lp .rise-lp__container {
+    width: calc(100% - 40px);
+  }
+
+  .rise-lp .rise-lp__section {
+    padding-top: calc(var(--rise-section-spacing) * 0.66);
+    padding-bottom: calc(var(--rise-section-spacing) * 0.66);
+  }
+
+  .rise-lp .rise-lp__section-header {
+    margin-bottom: 30px;
+  }
+
+  .rise-lp .rise-lp__heading {
+    font-size: 3rem;
+  }
+
+  .rise-lp .rise-lp__cta .rise-lp__heading {
+    font-size: 3rem;
+  }
+
+  .rise-lp .rise-lp__intro {
+    margin-top: 18px;
+    font-size: 17px;
+  }
+
+  .rise-lp .rise-lp__header-inner {
+    flex-wrap: wrap;
+    gap: 18px;
+    min-height: 78px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .rise-lp .rise-lp__logo {
+    max-width: 180px;
+    max-height: 48px;
+  }
+
+  .rise-lp .rise-lp__logo--preset-fitness {
+    height: 48px;
+  }
+
+  .rise-lp .rise-lp__header-nav {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .rise-lp .rise-lp__header-nav .rise-lp__button {
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .rise-lp .rise-lp__hero {
+    padding-top: 38px;
+  }
+
+  .rise-lp .rise-lp__hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .rise-lp .rise-lp__hero-content,
+  .rise-lp .rise-lp__hero--text-only .rise-lp__hero-content {
+    padding: 0;
+  }
+
+  .rise-lp .rise-lp__hero .rise-lp__heading {
+    max-width: 600px;
+    font-size: 3rem;
+  }
+
+  .rise-lp .rise-lp__hero .rise-lp__eyebrow {
+    margin-bottom: var(--rise-hero-eyebrow-gap, 23px);
+  }
+
+  .rise-lp .rise-lp__hero .rise-lp__intro {
+    margin-top: var(--rise-hero-description-gap, 32px);
+    font-size: 17px;
+  }
+
+  .rise-lp .rise-lp__hero-media {
+    aspect-ratio: 6 / 5;
+    max-height: 500px;
+  }
+
+  .rise-lp .rise-lp__benefits-layout,
+  .rise-lp .rise-lp__faq-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .rise-lp .rise-lp__benefits-layout--center {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rise-lp .rise-lp__benefits-grid {
+    gap: 25px;
+  }
+
+  .rise-lp .rise-lp__benefits-layout--right .rise-lp__section-header,
+  .rise-lp .rise-lp__benefits-layout--right .rise-lp__benefits-grid {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .rise-lp .rise-lp__cta-panel {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 31px 26px;
+  }
+
+  .rise-lp .rise-lp__cta-copy,
+  .rise-lp .rise-lp__cta-actions {
+    flex-basis: auto;
+  }
+
+  .rise-lp .rise-lp__cta-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .rise-lp .rise-lp__footer-grid {
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .rise-lp .rise-lp__footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .rise-lp .rise-lp__footer-links {
+    justify-content: flex-start;
+    gap: 12px 20px;
+  }
+}
+
+/* The head bootstrap prevents a flash before the deferred reveal script runs. */
+@media (prefers-reduced-motion: no-preference) {
+
+  html.rise-lp-motion-ready .rise-lp .rise-lp__faq-media[data-rise-image-animation="fade"] .rise-lp__faq-media-frame:not(.rise-lp__image-motion-complete),
+  .rise-lp .rise-lp__faq-media[data-rise-image-animation="fade"] .rise-lp__faq-media-frame.rise-lp__image-motion-playing {
+    opacity: 0;
+  }
+
+  .rise-lp .rise-lp__faq-media[data-rise-image-animation="tiles"] .rise-lp__faq-media-frame.rise-lp__image-motion-playing > .rise-lp__faq-image,
+  html.rise-lp-motion-ready .rise-lp .rise-lp__faq-media[data-rise-image-animation="tiles"] .rise-lp__faq-media-frame:not(.rise-lp__image-motion-complete) > .rise-lp__faq-image {
+    opacity: 0;
+  }
+
+  html.rise-lp-motion-ready .rise-lp .rise-lp__section :is(
+    .rise-lp__section-header > .rise-lp__eyebrow,
+    .rise-lp__section-header > .rise-lp__heading,
+    .rise-lp__section-header > .rise-lp__intro,
+    .rise-lp__hero-content > .rise-lp__eyebrow,
+    .rise-lp__hero-content > .rise-lp__heading,
+    .rise-lp__hero-content > .rise-lp__intro,
+    .rise-lp__hero-content > .rise-lp__reassurance,
+    .rise-lp__hero-content > .rise-lp__actions,
+    .rise-lp__hero-media,
+    .rise-lp__cta-copy > .rise-lp__eyebrow,
+    .rise-lp__cta-copy > .rise-lp__heading,
+    .rise-lp__cta-copy > .rise-lp__intro,
+    .rise-lp__cta-actions,
+    .rise-lp__service-card,
+    .rise-lp__process-step,
+    .rise-lp__benefit,
+    .rise-lp__faq-item
+  ):not(.rise-lp__revealed) {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+}
+
+@media (max-width: 639px) {
+
+  .rise-lp .rise-lp__process-grid {
+    gap: 28px;
+  }
+
+  .rise-lp .rise-lp__process-grid,
+  .rise-lp .rise-lp__process-grid:not(.rise-lp__process-grid--circle):has(> :nth-child(n)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rise-lp .rise-lp__process-step {
+    position: relative;
+    padding-inline-start: 65px;
+  }
+
+  .rise-lp .rise-lp__step-number {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    width: 43px;
+    height: 43px;
+    margin: 0;
+  }
+
+  .rise-lp .rise-lp__process-step .rise-lp__card-title {
+    padding-top: 8px;
+  }
+
+  .rise-lp .rise-lp__faq-question {
+    min-height: 72px;
+    gap: 18px;
+  }
+
+  .rise-lp .rise-lp__faq-answer-inner {
+    padding-inline-end: 24px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .rise-lp .rise-lp__services-grid,
+  .rise-lp .rise-lp__services-grid:has(> :nth-child(n)) {
+    grid-template-columns: repeat(var(--rise-services-mobile-columns, 1), minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+
+  .rise-lp .rise-lp__services-grid,
+  .rise-lp .rise-lp__services-grid:has(> :nth-child(n)) {
+    grid-template-columns: repeat(min(var(--rise-services-mobile-columns, 1), 2), minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+
+  .rise-lp .rise-lp__services-grid,
+  .rise-lp .rise-lp__services-grid:has(> :nth-child(n)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rise-lp *,
+  .rise-lp *::before,
+  .rise-lp *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+/* Brand outline formatting stays readable when text stroke is unsupported. */
+.rise-lp .rise-lp__heading .rise-lp__text-size,
+.rise-lp .rise-lp__card-title .rise-lp__text-size,
+.rise-lp .rise-lp__faq-question .rise-lp__text-size,
+.rise-lp .rise-lp-editor__faq-question .rise-lp__text-size { font-size: min(var(--rise-inline-size, 1em), 200px); line-height: inherit; }
+
+@media (max-width: 767px) {
+
+	.rise-lp .rise-lp__heading .rise-lp__text-size,
+	.rise-lp .rise-lp__card-title .rise-lp__text-size,
+	.rise-lp .rise-lp__faq-question .rise-lp__text-size,
+	.rise-lp .rise-lp-editor__faq-question .rise-lp__text-size { font-size: min(var(--rise-inline-size, 1em), 90vw); }
+}
+
+.rise-lp .rise-lp__outline {
+  color: var(--rise-outline-color, var(--rise-primary));
+  font-family: var(--rise-font-outline, var(--rise-font-heading));
+  font-style: var(--rise-heading-style, normal);
+}
+
+.rise-lp .rise-lp__text-color {
+  color: var(--rise-inline-text-color);
+  -webkit-text-fill-color: currentcolor;
+}
+
+@supports (-webkit-text-stroke: 1px currentcolor) {
+
+  .rise-lp .rise-lp__outline {
+    -webkit-text-stroke: 1px var(--rise-outline-color, var(--rise-primary));
+    -webkit-text-fill-color: transparent;
+    paint-order: stroke fill;
+  }
+}
+
+@media (forced-colors: active) {
+
+  .rise-lp .rise-lp__outline {
+    -webkit-text-stroke: 0;
+    -webkit-text-fill-color: currentcolor;
+    color: CanvasText;
+  }
+}
+
+.rise-lp.rise-lp--site-layout {
+  min-height: 0;
+}
+
+/* The theme still closes its document when only one site chrome part is used. */
+body.rise-lp-hide-site-header #top-header,
+body.rise-lp-hide-site-header #main-header,
+body.rise-lp-hide-site-header .et-l--header,
+body.rise-lp-hide-site-header .et_slide_in_menu_container,
+body.rise-lp-hide-site-header .site-header,
+body.rise-lp-hide-site-header #masthead,
+body.rise-lp-hide-site-header.wp-theme-risefitness > .rf-custom-block:not(.rise-lp):not(#footer),
+body.rise-lp-hide-site-header.wp-theme-risefitness > #nav-banner,
+body.rise-lp-hide-site-header > header,
+body.rise-lp-hide-site-header #page > header,
+body.rise-lp-hide-site-footer #main-footer,
+body.rise-lp-hide-site-footer .et-l--footer,
+body.rise-lp-hide-site-footer .site-footer,
+body.rise-lp-hide-site-footer #colophon,
+body.rise-lp-hide-site-footer > footer,
+body.rise-lp-hide-site-footer #page > footer {
+  display: none !important;
+}
+
+body.rise-lp-hide-site-header #page-container {
+  padding-top: 0 !important;
+}
+
+.rise-lp .rise-lp__hero-image,
+.rise-lp .rise-lp__service-image,
+.rise-lp .rise-lp__step-image,
+.rise-lp .rise-lp__faq-image {
+  object-position: var(--rise-media-position, 50% 50%);
+}
+
+.rise-lp .rise-lp__video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rise-lp .rise-lp__video-wrap video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rise-lp [data-rise-click-play] { cursor: pointer; }
+
+.rise-lp .rise-lp__hero--stacked .rise-lp__hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.rise-lp .rise-lp__hero--stacked .rise-lp__hero-media {
+  width: 100%;
+  height: 100vh;
+  min-height: var(--rise-hero-min-height, 560px);
+  max-height: none;
+  aspect-ratio: auto;
+}
+
+.rise-lp .rise-lp__hero--overlay {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: max(var(--rise-hero-min-height, 560px), min(100svh, var(--rise-hero-max-height, 100svh)));
+  padding-block: 80px;
+  isolation: isolate;
+  background: #000;
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__hero-grid {
+  display: block;
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__hero-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: 0;
+  aspect-ratio: auto;
+}
+
+.rise-lp .rise-lp__hero--overlay::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--rise-overlay-color, #000);
+  opacity: var(--rise-overlay-opacity, 0.55);
+  content: "";
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__hero-content {
+  max-width: 800px;
+}
+
+.rise-lp .rise-lp__hero-content > .rise-lp__spacer + :is(.rise-lp__heading, .rise-lp__intro, .rise-lp__reassurance, .rise-lp__actions) {
+  margin-top: 0 !important;
+}
+
+.rise-lp .rise-lp__hero--overlay.rise-lp__hero--center .rise-lp__hero-content {
+  margin-inline: auto;
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__intro {
+  color: var(--rise-overlay-text, #fff);
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__reassurance {
+  color: var(--rise-overlay-text, #fff);
+}
+
+.rise-lp .rise-lp__section--bg-none,
+.rise-lp .rise-lp__section--bg-none .rise-lp__cta-panel,
+.rise-lp.rise-lp-editor--bg-none .rise-lp__section,
+.rise-lp.rise-lp-editor--bg-none .rise-lp__cta-panel {
+  background: transparent;
+}
+
+.rise-lp .rise-lp__section--bg-surface,
+.rise-lp.rise-lp-editor--bg-surface .rise-lp__section {
+  background: var(--rise-surface);
+}
+
+.rise-lp .rise-lp__section--bg-offwhite,
+.rise-lp.rise-lp-editor--bg-offwhite .rise-lp__section {
+  --rise-text: #111;
+  --rise-muted: #4d4d4d;
+  --rise-light-section-background: #f5f5f5;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.rise-lp .rise-lp__process.rise-lp__section--bg-white,
+.rise-lp.rise-lp-editor--bg-white .rise-lp__process,
+.rise-lp .rise-lp__benefits.rise-lp__section--bg-white,
+.rise-lp.rise-lp-editor--bg-white .rise-lp__benefits {
+  --rise-text: #111;
+  --rise-muted: #4d4d4d;
+  background: #fff;
+  color: #111;
+}
+
+.rise-lp .rise-lp__cta.rise-lp__section--bg-white,
+.rise-lp.rise-lp-editor--bg-white .rise-lp__cta {
+  --rise-text: #111;
+  --rise-muted: #4d4d4d;
+  background: #fff;
+  color: #111;
+}
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__cta.rise-lp__section--bg-white .rise-lp__button--outline,
+.rise-lp.rise-lp--fitness-buttons.rise-lp-editor--bg-white .rise-lp__cta .rise-lp__button--outline,
+.rise-lp.rise-lp--fitness-buttons .rise-lp__cta.rise-lp__section--bg-offwhite .rise-lp__button--outline,
+.rise-lp.rise-lp--fitness-buttons.rise-lp-editor--bg-offwhite .rise-lp__cta .rise-lp__button--outline {
+  border-color: #111;
+  color: #111;
+}
+
+.rise-lp .rise-lp__hero.rise-lp__section--bg-surface,
+.rise-lp.rise-lp-editor--bg-surface .rise-lp__hero {
+  background: var(--rise-surface);
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__heading {
+  color: var(--rise-overlay-text, #fff);
+  max-width: 900px;
+  line-height: var(--rise-hero-leading, 0.95);
+}
+
+.rise-lp .rise-lp__hero--overlay .rise-lp__outline {
+  margin-inline: 0.035em;
+}
+
+.rise-lp .rise-lp__section--bg-none .rise-lp__cta-panel,
+.rise-lp.rise-lp-editor--bg-none .rise-lp__cta-panel {
+  padding: 0;
+}
+
+.rise-lp.rise-lp-editor--bg-white .rise-lp__cta-panel,
+.rise-lp.rise-lp-editor--bg-offwhite .rise-lp__cta-panel,
+.rise-lp .rise-lp__cta:is(.rise-lp__section--bg-white, .rise-lp__section--bg-offwhite) .rise-lp__cta-panel {
+  background: var(--rise-light-section-background, #fff);
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  max-width: none;
+  padding-block: 8px 20px;
+}
+
+.rise-lp .rise-lp__services-grid--slider .rise-lp__service-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+}
+
+.rise-lp .rise-lp__slider-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.rise-lp .rise-lp__slider-controls[hidden] {
+  display: none;
+}
+
+.rise-lp .rise-lp__slider-controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__spacer {
+  height: var(--rise-spacer-height, 64px);
+}
+
+/* Rise Fitness divider rhythm with a measured, seamless marquee. */
+.rise-lp .rise-lp__separator {
+  --rise-outline-color: currentcolor;
+  width: 100%;
+  overflow: hidden;
+  padding-block: 24px;
+  background: #fff;
+  color: #000;
+}
+
+.rise-lp .rise-lp__separator--fitness { background: #ec1c2b; }
+
+.rise-lp .rise-lp__separator--physio { background: #61ffd6; }
+
+.rise-lp .rise-lp__separator--medical { background: #002e75; color: #fff; }
+
+.rise-lp .rise-lp__separator--black { background: #000; color: #fff; }
+
+.rise-lp .rise-lp__separator--white { background: #fff; }
+
+.rise-lp .rise-lp__separator-track,
+.rise-lp .rise-lp__separator-editor-set {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: var(--rise-separator-gap, 24px);
+}
+
+.rise-lp .rise-lp__separator-item {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.rise-lp .rise-lp__separator-item img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: brightness(0);
+}
+
+.rise-lp .rise-lp__separator--medical .rise-lp__separator-item img,
+.rise-lp .rise-lp__separator--black .rise-lp__separator-item img {
+  filter: brightness(0) invert(1);
+}
+
+.rise-lp .rise-lp__separator-item img.rise-lp__separator-medical-icon {
+  filter: invert(1) grayscale(1) brightness(0.7) contrast(3);
+  mix-blend-mode: multiply;
+  transform: scale(1.7);
+}
+
+.rise-lp .rise-lp__separator--medical .rise-lp__separator-item img.rise-lp__separator-medical-icon,
+.rise-lp .rise-lp__separator--black .rise-lp__separator-item img.rise-lp__separator-medical-icon {
+  filter: none;
+  mix-blend-mode: screen;
+}
+
+.rise-lp .rise-lp__separator-text {
+  font-family: "F37 Judge", "F37Judge", var(--rise-font-heading, sans-serif);
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rise-lp .rise-lp__separator-text .rise-lp__outline {
+  font-family: inherit;
+  font-style: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rise-lp .rise-lp__separator-track { transform: none !important; }
+}
+
+@media (max-width: 1023px) {
+
+  .rise-lp .rise-lp__services-grid--slider .rise-lp__service-card {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+
+  .rise-lp .rise-lp__hero-image,
+  .rise-lp .rise-lp__service-image,
+  .rise-lp .rise-lp__step-image,
+  .rise-lp .rise-lp__faq-image {
+    object-position: var(
+      --rise-media-mobile-position,
+      var(--rise-media-position, 50% 50%)
+    );
+  }
+
+  .rise-lp .rise-lp__spacer {
+    height: var(--rise-spacer-mobile, 32px);
+  }
+
+  .rise-lp .rise-lp__services-grid--slider .rise-lp__service-card {
+    flex-basis: 88%;
+  }
+}
+
+.rise-lp .rise-lp__hero--center.rise-lp__hero--text-only .rise-lp__hero-grid {
+  justify-content: center;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Preset treatment intentionally overrides section button rules. */
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button { min-height: 42px; padding: 8px 23px; color: #000; font-size: 22px; font-weight: 500; line-height: 1; }
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button--secondary { border-color: #fff; background: transparent; color: #fff; }
+
+.rise-lp .rise-lp__button.rise-lp__button--light { border-color: #fff; background: #fff; color: #000; }
+
+.rise-lp .rise-lp__button.rise-lp__button--dark { border-color: #000; background: #000; color: #fff; }
+
+.rise-lp .rise-lp__button.rise-lp__button--accent { border-color: var(--rise-primary); background: var(--rise-primary); color: var(--rise-button-text); }
+
+.rise-lp .rise-lp__button-copy { display: none; }
+
+/* stylelint-disable-next-line no-descending-specificity -- Preset motion applies to every section button. */
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button { position: relative; overflow: hidden; transition: background-color .2s ease, border-color .2s ease; }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button-label { display: block; }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button-label,
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button-copy { transition: transform .22s cubic-bezier(.2, .7, .2, 1); }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button-copy { position: absolute; inset: 100% 0 auto; display: flex; align-items: center; justify-content: center; min-height: 100%; padding: inherit; color: var(--rise-primary); }
+
+.rise-lp.rise-lp--fitness-buttons.rise-lp--button-motion-slide .rise-lp__button-copy { padding: 8px 23px; }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button--light .rise-lp__button-copy,
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button--accent .rise-lp__button-copy,
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button--custom .rise-lp__button-copy { color: inherit; }
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button--accent .rise-lp__button-copy { color: var(--rise-primary); }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:not(.rise-lp__button--secondary) .rise-lp__button-copy { color: var(--rise-button-text); }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:hover,
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:focus-visible { opacity: 1; }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:hover .rise-lp__button-label,
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:focus-visible .rise-lp__button-label { transform: translateY(-220%); }
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:hover .rise-lp__button-copy,
+.rise-lp.rise-lp--button-motion-slide .rise-lp__button:focus-visible .rise-lp__button-copy { transform: translateY(-100%); }
+
+/* Fitness buttons invert red to white; the other preset styles turn red. */
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button:not(.rise-lp__button--secondary):is(:hover, :focus-visible),
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button--accent:is(:hover, :focus-visible) { border-color: #fff; background: #fff; color: var(--rise-primary); }
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__cta.rise-lp__section--bg-white .rise-lp__button:not(.rise-lp__button--secondary):is(:hover, :focus-visible),
+.rise-lp.rise-lp--fitness-buttons.rise-lp-editor--bg-white .rise-lp__cta .rise-lp__button:not(.rise-lp__button--secondary):is(:hover, :focus-visible),
+.rise-lp.rise-lp--fitness-buttons .rise-lp__cta.rise-lp__section--bg-offwhite .rise-lp__button:not(.rise-lp__button--secondary):is(:hover, :focus-visible),
+.rise-lp.rise-lp--fitness-buttons.rise-lp-editor--bg-offwhite .rise-lp__cta .rise-lp__button:not(.rise-lp__button--secondary):is(:hover, :focus-visible) { border-color: #000; background: #000; }
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button:not(.rise-lp__button--secondary) .rise-lp__button-copy { color: var(--rise-primary); }
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button--secondary:not(.rise-lp__button--accent, .rise-lp__button--custom):is(:hover, :focus-visible) { border-color: var(--rise-primary); background: var(--rise-primary); color: #000; }
+
+.rise-lp.rise-lp--fitness-buttons .rise-lp__button--secondary:not(.rise-lp__button--accent, .rise-lp__button--custom) .rise-lp__button-copy { color: #000; }
+
+/* stylelint-disable-next-line no-descending-specificity -- Preset hover overrides earlier button rules. */
+.rise-lp.rise-lp--physio .rise-lp__button:not(.rise-lp__button--secondary):is(:hover, :focus-visible),
+.rise-lp.rise-lp--physio .rise-lp__button--accent:is(:hover, :focus-visible) {
+  border-color: var(--rise-primary);
+  background: transparent;
+  color: var(--rise-primary);
+  opacity: 1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Sliding copy must match the transparent hover state. */
+.rise-lp.rise-lp--physio .rise-lp__button:not(.rise-lp__button--secondary) .rise-lp__button-copy { color: var(--rise-primary); }
+
+/* stylelint-disable-next-line no-descending-specificity -- Sliding copy must match the transparent hover state. */
+.rise-lp.rise-lp--physio .rise-lp__button--accent .rise-lp__button-copy { color: var(--rise-primary); }
+
+/* stylelint-disable-next-line no-descending-specificity -- Preset hover overrides earlier section button rules. */
+.rise-lp.rise-lp--physio .rise-lp__button--outline:is(:hover, :focus-visible) {
+  border-color: var(--rise-primary);
+  background: var(--rise-primary);
+  color: #000;
+  opacity: 1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Preset hover copy overrides generic button motion. */
+.rise-lp.rise-lp--physio .rise-lp__button--outline .rise-lp__button-copy { color: #000; }
+
+@media (prefers-reduced-motion: reduce) {
+
+	.rise-lp.rise-lp--button-motion-slide .rise-lp__button-label,
+	.rise-lp.rise-lp--button-motion-slide .rise-lp__button-copy { transition: none; }
+
+	.rise-lp.rise-lp--button-motion-slide .rise-lp__button:hover .rise-lp__button-label,
+	.rise-lp.rise-lp--button-motion-slide .rise-lp__button:focus-visible .rise-lp__button-label { transform: none; }
+
+	.rise-lp.rise-lp--button-motion-slide .rise-lp__button-copy { display: none; }
+}
+
+.rise-lp .rise-lp__hero--split.rise-lp__hero--media-left .rise-lp__hero-content {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rise-lp .rise-lp__hero--split.rise-lp__hero--media-left .rise-lp__hero-media {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Light FAQ backgrounds use dark text; the page background remains the default. */
+.rise-lp .rise-lp__faq:is(.rise-lp__section--bg-none, .rise-lp__section--bg-surface),
+.rise-lp.rise-lp-editor--bg-none .rise-lp__faq,
+.rise-lp.rise-lp-editor--bg-surface .rise-lp__faq {
+  --rise-faq-text: var(--rise-text);
+  --rise-faq-muted: var(--rise-muted);
+  --rise-faq-border: var(--rise-text);
+  --rise-faq-accent: var(--rise-primary);
+  --rise-faq-pill-text: #fff;
+}
+
+.rise-lp .rise-lp__faq.rise-lp__section--bg-white,
+.rise-lp.rise-lp-editor--bg-white .rise-lp__faq,
+.rise-lp .rise-lp__faq.rise-lp__section--bg-offwhite,
+.rise-lp.rise-lp-editor--bg-offwhite .rise-lp__faq {
+  --rise-faq-text: #111;
+  --rise-faq-muted: #4d4d4d;
+  --rise-faq-border: #111;
+  --rise-faq-accent: var(--rise-primary);
+  --rise-faq-pill-text: #fff;
+}
+
+.rise-lp .rise-lp__faq.rise-lp__section--bg-white,
+.rise-lp.rise-lp-editor--bg-white .rise-lp__faq {
+  background: #fff;
+}
+
+.rise-lp.rise-lp--physio .rise-lp__faq {
+  --rise-faq-pill-text: #000;
+}
+
+.rise-lp .rise-lp__faq .rise-lp__faq-question,
+.rise-lp .rise-lp__faq .rise-lp-editor__faq-question {
+  color: var(--rise-faq-text, #111);
+}
+
+.rise-lp .rise-lp__faq .rise-lp__heading {
+  color: var(--rise-faq-text, #111);
+}
+
+.rise-lp .rise-lp__faq .rise-lp__faq-answer {
+  color: var(--rise-faq-muted, #4d4d4d);
+}
+
+.rise-lp .rise-lp__faq .rise-lp__intro {
+  color: var(--rise-faq-muted, #4d4d4d);
+}
+
+.rise-lp .rise-lp__faq .rise-lp__eyebrow {
+  color: var(--rise-faq-accent, var(--rise-primary));
+}
+
+.rise-lp .rise-lp__faq .rise-lp__faq-question:is(:hover, :focus-visible) {
+  color: var(--rise-faq-accent, var(--rise-primary));
+}
+
+.rise-lp .rise-lp__faq-list,
+.rise-lp .rise-lp__faq-item {
+  border-color: var(--rise-faq-border, #111);
+}
+
+@media (max-width: 767px) {
+
+  .rise-lp .rise-lp__hero--split:is(.rise-lp__hero--media-left, .rise-lp__hero--media-right) .rise-lp__hero-content {
+    grid-column: auto;
+    grid-row: 2;
+  }
+
+  .rise-lp .rise-lp__hero--split:is(.rise-lp__hero--media-left, .rise-lp__hero--media-right) .rise-lp__hero-media {
+    grid-column: auto;
+    grid-row: 1;
+  }
+
+  .rise-lp .rise-lp__faq-layout--media {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rise-lp .rise-lp__faq-layout--media .rise-lp__faq-content {
+    display: contents;
+  }
+
+  .rise-lp .rise-lp__faq-layout--media .rise-lp__section-header {
+    grid-column: 1;
+    grid-row: auto;
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .rise-lp .rise-lp__faq-layout--media .rise-lp__faq-media {
+    position: relative;
+    top: auto;
+    grid-column: 1;
+    grid-row: auto;
+    order: 2;
+    aspect-ratio: 16 / 10;
+  }
+
+  .rise-lp .rise-lp__faq-layout--media .rise-lp__faq-list {
+    grid-column: 1;
+    grid-row: auto;
+    order: 3;
+  }
+
+}
+
+/* stylelint-disable no-descending-specificity -- Card layouts override shared and preset styles. */
+
+/* Services layout 2: Rise Fitness-style pricing cards. */
+.rise-lp .rise-lp__services-grid--pricing {
+  padding-top: 12px;
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-card {
+  position: relative;
+  overflow: visible;
+  min-height: 485px;
+  border: 1px solid #fff;
+  background: #080808;
+  color: #fff;
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-card:hover {
+  border-color: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-badge {
+  position: absolute;
+  top: -12px;
+  left: 13%;
+  z-index: 1;
+  max-width: 74%;
+  padding: 6px 14px;
+  background: var(--rise-primary);
+  color: var(--rise-button-text);
+  font-family: var(--rise-font-heading);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transform: skewX(-15deg);
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-content {
+  gap: 0;
+  padding: 38px 36px 20px;
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__card-title {
+  color: #fff;
+  font-size: clamp(1.55rem, 2vw, 2rem);
+  line-height: var(--rise-card-heading-leading, 1.05);
+  text-transform: uppercase;
+}
+
+.rise-lp .rise-lp__service-features {
+  display: grid;
+  gap: 25px;
+  width: 100%;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rise-lp .rise-lp__service-features li {
+  position: relative;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.rise-lp .rise-lp__service-features li::before {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: 2px;
+  width: 6px;
+  background: var(--rise-primary);
+  content: "";
+  transform: skewX(-15deg);
+}
+
+.rise-lp .rise-lp__service-price-block {
+  display: grid;
+  gap: 1px;
+  width: 100%;
+  margin-top: auto;
+  padding: 36px 0 26px;
+  color: #fff;
+  font-family: var(--rise-font-heading);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.rise-lp .rise-lp__service-price-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px;
+  line-height: 1;
+}
+
+.rise-lp .rise-lp__service-price {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+}
+
+.rise-lp .rise-lp__service-price-qualifier {
+  border-left: 6px solid var(--rise-primary);
+  padding: 0 0 2px 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rise-lp .rise-lp__service-price-note {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-card .rise-lp__button,
+.rise-lp.rise-lp--fitness-buttons .rise-lp__services-grid--pricing .rise-lp__service-card .rise-lp__button {
+  width: 100%;
+  min-height: 41px;
+  justify-content: center;
+  margin-top: auto;
+  border-color: var(--rise-primary);
+  background: var(--rise-primary);
+  color: #000;
+  text-align: center;
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-price-block + .rise-lp__button,
+.rise-lp.rise-lp--fitness-buttons .rise-lp__services-grid--pricing .rise-lp__service-price-block + .rise-lp__button {
+  margin-top: 0;
+}
+
+.rise-lp .rise-lp__services-grid--pricing .rise-lp__service-card .rise-lp__button:is(:hover, :focus-visible),
+.rise-lp.rise-lp--fitness-buttons .rise-lp__services-grid--pricing .rise-lp__service-card .rise-lp__button:is(:hover, :focus-visible) {
+  border-color: var(--rise-primary);
+  background: transparent;
+  color: var(--rise-primary);
+  opacity: 1;
+}
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__services-grid--pricing .rise-lp__button .rise-lp__button-copy {
+  color: var(--rise-primary);
+}
+
+/* Slider navigation follows the selected Services section background. */
+.rise-lp .rise-lp__services.rise-lp__section--bg-none .rise-lp__slider-controls,
+.rise-lp.rise-lp-editor--bg-none .rise-lp__services .rise-lp__slider-controls {
+  --rise-slider-nav-color: var(--rise-text);
+}
+
+.rise-lp.rise-lp--physio .rise-lp__services.rise-lp__section--bg-none .rise-lp__slider-controls,
+.rise-lp.rise-lp--physio.rise-lp-editor--bg-none .rise-lp__services .rise-lp__slider-controls {
+  --rise-slider-nav-color: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__services.rise-lp__section--bg-surface .rise-lp__slider-controls,
+.rise-lp.rise-lp-editor--bg-surface .rise-lp__services .rise-lp__slider-controls,
+.rise-lp .rise-lp__services.rise-lp__section--bg-offwhite .rise-lp__slider-controls,
+.rise-lp.rise-lp-editor--bg-offwhite .rise-lp__services .rise-lp__slider-controls {
+  --rise-slider-nav-color: var(--rise-text);
+}
+
+.rise-lp .rise-lp__services .rise-lp__slider-controls .rise-lp__button,
+.rise-lp.rise-lp--fitness-buttons .rise-lp__services .rise-lp__slider-controls .rise-lp__button {
+  border-color: var(--rise-slider-nav-color, var(--rise-text));
+  background: transparent;
+  color: var(--rise-slider-nav-color, var(--rise-text));
+}
+
+.rise-lp .rise-lp__services .rise-lp__slider-controls .rise-lp__button:is(:hover, :focus-visible),
+.rise-lp.rise-lp--fitness-buttons .rise-lp__services .rise-lp__slider-controls .rise-lp__button:is(:hover, :focus-visible) {
+  border-color: var(--rise-primary);
+  background: var(--rise-primary);
+  color: var(--rise-button-text);
+  opacity: 1;
+}
+
+.rise-lp.rise-lp--button-motion-slide .rise-lp__services .rise-lp__slider-controls .rise-lp__button .rise-lp__button-copy {
+  color: var(--rise-button-text);
+}
+
+/* Services layout 3: framed image cards with overlaid actions. */
+.rise-lp .rise-lp__services > .rise-lp__container {
+  container-type: inline-size;
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: none;
+  gap: max(var(--rise-services-grid-gap, 24px), 24px);
+  margin-inline: 0 auto;
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--image-centered:not(.rise-lp__services-grid--slider) {
+  margin-inline: auto;
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--image-four:not(.rise-lp__services-grid--slider) {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@container (max-width: 1600px) {
+
+  .rise-lp .rise-lp__services-grid.rise-lp__services-grid--image-four:not(.rise-lp__services-grid--slider) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 940px) {
+
+  .rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider),
+  .rise-lp .rise-lp__services-grid.rise-lp__services-grid--image-four:not(.rise-lp__services-grid--slider) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider):has(> :only-child) {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 380px;
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider):has(> :nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 784px;
+}
+
+@container (max-width: 520px) {
+
+  .rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider),
+  .rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider):has(> :nth-child(2):last-child) {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 380px;
+  }
+
+  .rise-lp .rise-lp__services-grid.rise-lp__services-grid--image:not(.rise-lp__services-grid--slider):has(> :nth-child(3)) {
+    max-width: none;
+  }
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-card {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  aspect-ratio: 1;
+  border: 14px solid #fff;
+  background: #242424;
+  color: #fff;
+  transition: border-color 180ms ease;
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-card:hover {
+  border-color: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-media {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-media::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0.7) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-media::after {
+  z-index: 1;
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-content {
+  position: relative;
+  z-index: 2;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex: 1;
+  gap: 0;
+  padding: clamp(20px, 5%, 48px);
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-content:not(:has(> .rise-lp__button))::after {
+  display: block;
+  height: 55px;
+  content: "";
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__card-title {
+  margin-bottom: var(--rise-services-card-text-gap, 16px);
+  color: #fff;
+  font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+  line-height: var(--rise-card-heading-leading, 1.2);
+  text-transform: uppercase;
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__card-copy {
+  margin-bottom: 0;
+  color: #fff;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.5;
+}
+
+.rise-lp .rise-lp__services-grid--image .rise-lp__service-card .rise-lp__button,
+.rise-lp.rise-lp--fitness-buttons .rise-lp__services-grid--image .rise-lp__service-card .rise-lp__button {
+  min-height: 45px;
+  margin-top: 10px;
+  border-color: var(--rise-primary);
+  background: var(--rise-primary);
+  color: #000;
+  font-family: var(--rise-font-body);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+
+  .rise-lp .rise-lp__services-grid--pricing .rise-lp__service-card {
+    min-height: 420px;
+  }
+
+  .rise-lp .rise-lp__services-grid--image .rise-lp__service-card {
+    min-height: 280px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* Process layout 2: a brand-coloured ring with each step connected to it. */
+.rise-lp .rise-lp__process .rise-lp__container {
+  container: rise-process / inline-size;
+}
+
+.rise-lp .rise-lp__process-grid.rise-lp__process-grid--circle {
+  --rise-process-ring-size: clamp(220px, 27vw, 320px);
+  --rise-process-orbit: calc(var(--rise-process-ring-size) * 0.39);
+  --rise-process-column-gap: clamp(24px, 3vw, 48px);
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) var(--rise-process-ring-size) minmax(0, 1fr);
+  grid-template-rows: repeat(var(--rise-process-rows), minmax(128px, 1fr));
+  column-gap: var(--rise-process-column-gap);
+  row-gap: 0;
+  min-height: max(var(--rise-process-ring-size), calc(var(--rise-process-rows) * 128px));
+}
+
+.rise-lp .rise-lp__process-grid--circle::before {
+  z-index: 0;
+  grid-column: 2;
+  grid-row: 1 / -1;
+  place-self: center;
+  width: var(--rise-process-ring-size);
+  aspect-ratio: 1;
+  border: calc(var(--rise-process-ring-size) * 0.205) solid var(--rise-primary);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__process-step {
+  z-index: 1;
+  grid-row: var(--rise-process-row);
+  align-self: center;
+  min-width: 0;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__process-step--left {
+  grid-column: 1;
+  text-align: end;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__process-step--right {
+  grid-column: 3;
+  text-align: start;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-marker {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 18%);
+  transform: translate(-50%, -50%) rotate(var(--rise-process-angle)) translateY(calc(-1 * var(--rise-process-orbit))) rotate(calc(-1 * var(--rise-process-angle)));
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-marker:has(> .rise-lp__step-image) {
+  background: var(--rise-process-image-background, #000);
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-number,
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-number {
+  color: var(--rise-primary);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-image {
+  padding: 9px;
+  object-fit: contain;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__step-marker::after {
+  position: absolute;
+  top: 50%;
+  width: max(0px, calc(var(--rise-process-ring-size) * var(--rise-process-horizontal-ratio) + var(--rise-process-column-gap) - 34px));
+  height: 2px;
+  background: var(--rise-primary);
+  content: "";
+  pointer-events: none;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__process-step--left .rise-lp__step-marker::after {
+  right: 100%;
+}
+
+.rise-lp .rise-lp__process-grid--circle .rise-lp__process-step--right .rise-lp__step-marker::after {
+  left: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  html.rise-lp-motion-ready .rise-lp .rise-lp__section.rise-lp__process .rise-lp__process-grid--circle .rise-lp__process-step:not(.rise-lp__revealed) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@container rise-process (max-width: 900px) {
+
+  .rise-lp .rise-lp__process-grid.rise-lp__process-grid--circle {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 28px;
+    min-height: 0;
+  }
+
+  .rise-lp .rise-lp__process-grid--circle::before {
+    position: absolute;
+    grid-column: auto;
+    grid-row: auto;
+    place-self: auto;
+    top: 22px;
+    bottom: 22px;
+    inset-inline-start: 25px;
+    width: 2px;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    background: var(--rise-primary);
+  }
+
+  .rise-lp .rise-lp__process-grid--circle .rise-lp__process-step,
+  .rise-lp .rise-lp__process-grid--circle .rise-lp__process-step--left,
+  .rise-lp .rise-lp__process-grid--circle .rise-lp__process-step--right {
+    position: relative;
+    grid-column: 1;
+    grid-row: auto;
+    align-self: start;
+    padding: 0;
+    padding-inline-start: 74px;
+    text-align: start;
+  }
+
+  .rise-lp .rise-lp__process-grid--circle .rise-lp__step-marker {
+    top: 0;
+    left: auto;
+    inset-inline-start: 0;
+    width: 50px;
+    height: 50px;
+    transform: none;
+  }
+
+  .rise-lp .rise-lp__process-grid--circle .rise-lp__step-marker::after {
+    display: none;
+  }
+}
+
+.rise-lp .rise-lp__process-grid.rise-lp__process-grid--circle.rise-lp__process-grid--crowded {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: none;
+  gap: 28px;
+  width: 100%;
+  max-width: 760px;
+  min-height: 0;
+  margin-inline: auto;
+}
+
+.rise-lp .rise-lp__process-grid--circle.rise-lp__process-grid--crowded::before {
+  position: absolute;
+  grid-column: auto;
+  grid-row: auto;
+  place-self: auto;
+  top: 25px;
+  bottom: 25px;
+  inset-inline-start: 25px;
+  width: 2px;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: var(--rise-primary);
+}
+
+.rise-lp .rise-lp__process-grid--circle.rise-lp__process-grid--crowded .rise-lp__process-step,
+.rise-lp .rise-lp__process-grid--circle.rise-lp__process-grid--crowded .rise-lp__process-step--left,
+.rise-lp .rise-lp__process-grid--circle.rise-lp__process-grid--crowded .rise-lp__process-step--right {
+  position: relative;
+  grid-column: 1;
+  grid-row: auto;
+  align-self: start;
+  padding: 0;
+  padding-inline-start: 74px;
+  text-align: start;
+}
+
+.rise-lp .rise-lp__process-grid--circle.rise-lp__process-grid--crowded .rise-lp__step-marker {
+  top: 0;
+  left: auto;
+  inset-inline-start: 0;
+  width: 50px;
+  height: 50px;
+  transform: none;
+}
+
+.rise-lp .rise-lp__process-grid--circle.rise-lp__process-grid--crowded .rise-lp__step-marker::after {
+  display: none;
+}
+
+.rise-lp .rise-lp__process:has(.rise-lp__process-spacers) .rise-lp__section-header,
+.rise-lp .rise-lp__services:has(.rise-lp__services-spacers) .rise-lp__section-header {
+  margin-bottom: 0;
+}

@@ -1,0 +1,99 @@
+.editor-styles-wrapper .rise-lp-editor{margin:0;max-width:none;min-height:0;position:relative;width:100%}.editor-styles-wrapper .rise-lp-editor .rise-lp__hero,.editor-styles-wrapper .rise-lp-editor .rise-lp__section{padding-bottom:clamp(2rem,5vw,4rem);padding-top:clamp(2rem,5vw,4rem)}.editor-styles-wrapper .rise-lp-editor--hidden{outline:2px dashed #757575}.rise-lp-editor .rise-lp-editor__section-label{background:#1e1e1e;color:#fff;font:11px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;left:0;letter-spacing:.04em;opacity:0;padding:.2rem .65rem;position:absolute;text-transform:uppercase;top:0;z-index:1}.rise-lp-editor.is-selected .rise-lp-editor__section-label,.rise-lp-editor:focus-within .rise-lp-editor__section-label,.rise-lp-editor:hover .rise-lp-editor__section-label{opacity:1}.rise-lp-editor .rise-lp__button{cursor:pointer}.rise-lp.rise-lp--button-motion-slide.rise-lp-editor
+	.rise-lp-editor__editable-button
+	.rise-lp__button-label{transform:none}.rise-lp.rise-lp--button-motion-slide.rise-lp-editor
+	.rise-lp-editor__editable-button
+	.rise-lp__button-copy{display:none}.rise-lp-editor__button-toolbar{display:grid;gap:12px;max-width:calc(100vw - 32px);padding:16px;width:300px}.rise-lp-editor__background-popover{min-width:240px;padding:16px}.rise-lp-editor__background-popover .components-base-control{margin-bottom:0}.rise-lp-editor__button-toolbar-actions{align-items:center;border-top:1px solid #ddd;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;padding-top:12px}.rise-lp-editor__button-colours{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}.rise-lp-editor .rise-lp-editor__add-button{border-style:dashed}.rise-lp-editor .rise-lp__service-card .rise-lp-editor__add-button{margin-top:auto;min-height:50px}.rise-lp-editor
+	.rise-lp__services-grid--pricing
+	.rise-lp__service-card
+	.rise-lp-editor__add-button{min-height:41px;width:100%}.rise-lp-editor
+	.rise-lp__services-grid--pricing
+	.rise-lp__service-price-block+.rise-lp-editor__add-button{margin-top:0}.rise-lp-editor
+	.rise-lp__services-grid--image
+	.rise-lp__service-card
+	.rise-lp-editor__add-button{margin-top:10px;min-height:45px}.rise-lp-editor
+	.rise-lp__services-grid--image
+	.rise-lp__service-content:has(>.rise-lp-editor__add-button):after{display:none}.rise-lp-editor .rise-lp-editor__service-badge-add,.rise-lp-editor .rise-lp-editor__service-badge-control{left:13%;position:absolute;top:-12px;z-index:3}.rise-lp-editor .rise-lp-editor__service-badge-add{background:#080808;border:1px dashed var(--rise-primary);color:#fff}.rise-lp-editor .rise-lp-editor__service-badge-control{align-items:center;display:flex;gap:4px}.rise-lp-editor .rise-lp-editor__service-badge-control .rise-lp__service-badge{border:0;border-radius:0;max-width:100%;outline-offset:2px;position:static;width:170px}.rise-lp-editor
+	.rise-lp-editor__service-badge-control
+	.rise-lp__service-badge::placeholder{color:currentcolor;opacity:.7}.rise-lp-editor .rise-lp__service-features li{align-items:center;display:flex;gap:6px}.rise-lp-editor .rise-lp-editor__service-feature-input{background:transparent;border:0;border-radius:0;color:#fff;flex:1;font:inherit;min-width:0;padding:0}.rise-lp-editor .rise-lp-editor__service-feature-input::placeholder{color:#bcbcbc}.rise-lp-editor .rise-lp-editor__service-add-feature{background:transparent;border:1px dashed var(--rise-primary);color:#fff;margin-top:18px}.rise-lp-editor .rise-lp__cta-actions .rise-lp__actions{align-items:stretch;display:flex;flex-direction:column;gap:12px;width:100%}.rise-lp-editor .rich-text:focus{outline:2px solid #3858e9;outline-offset:3px}.rise-lp-editor__media-control{margin-bottom:1rem}.rise-lp-editor__media-control .components-base-control{margin-top:.75rem}.rise-lp-editor__control-label{font-weight:600}.rise-lp-editor__media-preview{display:block;margin-bottom:.75rem;max-height:150px;max-width:100%;object-fit:contain}.rise-lp-editor__marker-control{margin:0 0 1rem}.rise-lp-editor__marker-preview{display:block;height:48px;margin:.5rem 0;object-fit:contain;width:48px}.rise-lp-editor__marker-control .components-base-control{margin-top:.75rem}.rise-lp-editor .rise-lp-editor__image-placeholder{align-items:center;background:#f0f0f0;border:1px dashed #757575;border-radius:var(--rise-radius,0);color:#1e1e1e;display:flex;justify-content:center;min-height:280px;padding:1.5rem;text-align:center}.rise-lp-editor .rise-lp-editor__faq-question{font-family:var(--rise-font-heading,inherit);font-size:2rem;font-style:var(--rise-heading-style,normal);font-weight:600;line-height:var(--rise-card-heading-leading,1.5);margin:0;padding:1.25rem 0}.rise-lp-editor__collection-content,.rise-lp-editor__title-row{display:contents}.rise-lp-editor .rise-lp-editor__faq-title-row{align-items:center;display:flex;flex-wrap:wrap;gap:16px}.rise-lp-editor .rise-lp-editor__faq-title-row .rise-lp__faq-dashes{height:32px}.editor-styles-wrapper .rise-lp-editor .rise-lp__benefit .rise-lp__card-title{font-size:2rem}.rise-lp-editor__outline-colors{padding:16px;width:280px}.rise-lp-editor .rise-lp__faq-answer{display:block}.rise-lp-editor .rise-lp-editor__faq-labels{margin:12px 0 18px}.rise-lp-editor .rise-lp-editor__faq-pills{margin:0 0 8px}.rise-lp-editor .rise-lp-editor__faq-pills li{align-items:center;display:flex;gap:1px;min-height:22px;padding:1px 6px 1px 7px}.rise-lp-editor .rise-lp-editor__faq-pills .components-base-control{flex:0 0 var(--rise-pill-input-width,28px);margin:0;width:var(--rise-pill-input-width,28px)}.rise-lp-editor .rise-lp-editor__faq-pills .components-base-control__field{margin:0}.rise-lp-editor .rise-lp-editor__faq-pills input{background:transparent;border:0;box-shadow:none;color:var(--rise-faq-pill-text,#fff);font:inherit;font-size:11px;height:18px;line-height:18px;min-height:18px;min-width:0;padding:0;text-transform:uppercase;width:100%}.rise-lp-editor .rise-lp-editor__faq-pills input::placeholder{color:hsla(0,0%,100%,.75)}.rise-lp-editor__panel-shortcuts .components-button{height:28px;min-width:28px;padding:4px}.rise-lp-editor .rise-lp-editor__faq-pills .components-button{color:var(--rise-faq-pill-text,#fff);height:18px;min-width:14px;padding:0;width:14px}.rise-lp-editor .rise-lp-editor__faq-pills .components-button svg{height:12px;width:12px}.rise-lp-editor .rise-lp-editor__faq-labels>.components-button{color:var(--rise-faq-text,var(--rise-text))}.rise-lp-editor .rise-lp__hero-media img{height:100%;object-fit:cover;width:100%}.rise-lp-editor .rise-lp-editor__hint{font-size:.875rem;line-height:1.5;margin-top:1rem}.rise-lp-editor .rise-lp-editor__add-item{margin-top:1.5rem}.rise-lp-editor__sidebar-add-item{padding:16px}.rise-lp-editor .rise-lp__benefits-layout .rise-lp-editor__add-item{grid-column:2;margin-top:0}.rise-lp-editor .rise-lp__benefits-layout--center .rise-lp-editor__add-item,.rise-lp-editor .rise-lp__benefits-layout--right .rise-lp-editor__add-item{grid-column:1}.rise-lp-editor .rise-lp__benefits-layout--center .rise-lp-editor__add-item{justify-self:center;width:min(100%,720px)}.rise-lp-editor
+	.rise-lp__benefits-layout--items-centered
+	.rise-lp-editor__add-item{text-align:center}.rise-lp-editor .rise-lp__benefit--editor-hidden{opacity:.45}.rise-lp-editor .rise-lp__benefit-heading .rich-text{min-width:8rem}.rise-lp-editor .rise-lp-editor__empty-benefit-copy:not(:focus):before,.rise-lp-editor .rise-lp-editor__empty-benefit-title:not(:focus):before{content:attr(data-placeholder)}.rise-lp-editor .rise-lp-editor__empty-benefit-copy:not(:focus):before,.rise-lp-editor .rise-lp-editor__empty-benefit-title:not(:focus):before{color:#757575;pointer-events:none}.rise-lp-editor .rise-lp__faq-layout--text .rise-lp-editor__add-item{grid-column:2}@media (max-width:767px){.rise-lp-editor .rise-lp__benefits-layout .rise-lp-editor__add-item,.rise-lp-editor .rise-lp__faq-layout--text .rise-lp-editor__add-item{grid-column:1}}.rise-lp-editor__item-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.rise-lp-editor__item-panel--quick-actions{position:relative}.rise-lp-editor__item-panel--quick-actions .components-panel__body-toggle{padding-right:138px}.rise-lp-editor__panel-shortcuts{display:flex;gap:2px;position:absolute;right:40px;top:16px;z-index:1}.rise-lp-editor .components-notice{margin:0}.rise-lp-page-settings.is-opened>.components-base-control{margin-bottom:20px}.rise-lp-page-settings .components-base-control__help{line-height:1.5;margin-top:8px}.editor-styles-wrapper .rise-lp-chrome-preview-mount{margin:0;max-width:none;width:100%}.rise-lp-chrome-preview{background:#fff;overflow:hidden;width:100%}.rise-lp-chrome-preview__label{background:#f6f7f7;border-block:1px solid #e0e0e0;color:#50575e;font:600 11px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;letter-spacing:.04em;padding:7px 16px;text-transform:uppercase}.rise-lp-chrome-preview iframe{border:0;display:block;height:160px;pointer-events:none;width:100%}.rise-lp-chrome-preview__message{color:#50575e;font-size:13px;margin:0;padding:16px}@media (max-width:600px){.rise-lp-editor .rise-lp__benefits-grid,.rise-lp-editor .rise-lp__hero-grid,.rise-lp-editor .rise-lp__process-grid{grid-template-columns:minmax(0,1fr)}}.rise-lp-editor .rise-lp-editor__spacer{align-items:center;background:transparent;border:0;color:#fff;display:flex;justify-content:center;min-height:28px;position:relative}.rise-lp-editor
+	.rise-lp__process:has(.wp-block-rise-landing-spacer)
+	.rise-lp__section-header,.rise-lp-editor
+	.rise-lp__services:has(.wp-block-rise-landing-spacer)
+	.rise-lp__section-header{margin-bottom:0}.rise-lp-editor--separator .rise-lp__separator-track{transform:none!important}.editor-styles-wrapper
+	.rise-lp-editor--separator
+	.rise-lp__separator-text[contenteditable],.editor-styles-wrapper .rise-lp-editor--separator .rise-lp__separator-text{font-family:F37 Judge,F37Judge,sans-serif!important;font-style:normal;overflow-wrap:normal!important;white-space:nowrap!important;word-break:normal!important}.rise-lp-editor__separator-text-control{margin-bottom:12px}.rise-lp-editor--separator .rise-lp__separator-editor-fallback{font-size:32px;font-weight:800}.rise-lp-editor .rise-lp-editor__spacer:before{border-top:1px dashed #858585;bottom:11px;content:"";left:0;position:absolute;right:0}.rise-lp-editor .rise-lp-editor__spacer-resize{align-items:center;background:#272727;border:1px solid #6b6b6b;border-radius:999px;bottom:0;box-shadow:0 1px 4px rgba(0,0,0,.2);color:#fff;cursor:ns-resize;display:flex;font:12px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;gap:8px;height:22px;justify-content:center;left:50%;padding:0 10px;position:absolute;touch-action:none;transform:translateX(-50%);z-index:2}.rise-lp-editor .rise-lp-editor__spacer-resize:after{border-block:2px solid currentcolor;content:"";height:6px;width:12px}.rise-lp-editor .rise-lp-editor__spacer-resize:is(:hover,:focus-visible){border-color:#3858e9;outline:2px solid #3858e9;outline-offset:1px}.rise-lp-editor.is-selected .rise-lp-editor__spacer:before,.rise-lp-editor:focus-within .rise-lp-editor__spacer:before{border-color:#3858e9}.editor-styles-wrapper .rise-lp-editor .rise-lp__hero--overlay{min-height:var(
+		--rise-hero-preview-height,var(--rise-hero-min-height,560px)
+	);padding-block:3rem}.editor-styles-wrapper .rise-lp-editor .rise-lp__hero-content{align-items:stretch;display:flex;flex-direction:column}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero--overlay
+	.rise-lp__hero-content{padding-block:0}.rise-lp-editor__spacer-slot{flex:0 0 0;height:0;margin:0;position:relative;width:100%;z-index:2}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button{background:transparent;border:0;border-radius:0;color:inherit;gap:6px;height:12px;inset-block-start:var(--rise-spacer-slot-offset,0);inset-inline-start:0;justify-content:center;min-height:12px;opacity:.35;padding:0;position:absolute;transform:translateY(-50%);width:100%}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button:is(:hover,:focus-visible){opacity:1}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button:after,.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button:before{border-top:1px solid;content:"";flex:1}.rise-lp-editor__spacer-label{flex-shrink:0;font-size:12px;font-weight:500;line-height:1;white-space:nowrap}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp-editor__spacer-slot
+	.components-button
+	:is(svg,.dashicon){flex-shrink:0;font-size:16px;height:16px;margin:0;padding:0;width:16px}.rise-lp-editor__hero-spacer-slot{--rise-spacer-slot-offset:var(
+		--rise-hero-slot-offset,calc(var(--rise-hero-slot-gap, 32px)/2)
+	)}.rise-lp-editor__process-spacer-slot{--rise-spacer-slot-offset:-21px}.rise-lp-editor__services-spacer-slot{--rise-spacer-slot-offset:calc(0px - var(--rise-services-cards-gap, 42px)/2)}@media (max-width:767px){.rise-lp-editor__process-spacer-slot{--rise-spacer-slot-offset:-15px}}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.block-editor-block-list__layout,.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.block-editor-inner-blocks{display:contents!important}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer{flex:0 0 auto;margin:0!important;width:100%}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content>.rise-lp__eyebrow{order:1}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-eyebrow,.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-eyebrow{order:2;--rise-hero-slot-gap:var(--rise-hero-eyebrow-gap,23px);--rise-hero-slot-offset:calc(0px - var(--rise-hero-eyebrow-gap, 23px)/2)}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content>.rise-lp__heading{order:3}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-heading,.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-heading{order:4;--rise-hero-slot-gap:var(--rise-hero-description-gap,32px)}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content>.rise-lp__intro{order:5}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-description,.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer:not([class*=rise-lp-editor--spacer-after-]),.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-description{order:6;--rise-hero-slot-gap:var(--rise-hero-reassurance-gap,30px)}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content>.rise-lp__reassurance{order:7}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor--spacer-after-reassurance,.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content
+	.rise-lp-editor__hero-spacer-slot-after-reassurance{order:8;--rise-hero-slot-gap:var(--rise-hero-reassurance-button-gap,35px)}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content>.rise-lp__actions{order:9}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero-content>.rise-lp-editor__hint{margin:8px 0 0;order:10}.editor-styles-wrapper
+	.rise-lp-editor
+	.rise-lp__hero--overlay.rise-lp__hero--text-only
+	.rise-lp__hero-grid{grid-template-columns:minmax(0,1fr)}.rise-lp-editor__button-toolbar>.components-base-control{margin-bottom:0}.rise-lp-editor__button-toolbar-actions>.components-button:last-child{margin-left:auto}

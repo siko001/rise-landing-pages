@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/spacer",
+	"title": "Rise Spacer",
+	"category": "rise-landing",
+	"icon": "image-flip-vertical",
+	"description": "Add adjustable breathing room between sections or Hero content.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"height": {
+			"type": "number",
+			"default": 64
+		},
+		"mobileHeight": {
+			"type": "number",
+			"default": 32
+		},
+		"heroSlot": {
+			"type": "string",
+			"default": "",
+			"enum": [
+				"",
+				"before-eyebrow",
+				"after-eyebrow",
+				"after-heading",
+				"after-description",
+				"after-reassurance",
+				"after-actions"
+			]
+		}
+	}
+}

@@ -1,0 +1,91 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/benefits",
+	"version": "1.0.0",
+	"title": "Rise Benefits",
+	"category": "rise-landing",
+	"icon": "yes-alt",
+	"description": "Share up to twelve reasons to choose your team.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Why choose Rise"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Support that puts you first"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Tell visitors what makes your approach different."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Built around you",
+					"description": "Describe your personalised approach."
+				},
+				{
+					"title": "Clear communication",
+					"description": "Explain how you keep people informed."
+				},
+				{
+					"title": "Here for your next step",
+					"description": "Share the support your team provides."
+				}
+			]
+		},
+		"layout": {
+			"type": "string",
+			"default": "left",
+			"enum": [ "left", "right", "center" ]
+		},
+		"centerItems": {
+			"type": "boolean",
+			"default": false
+		},
+		"markerStyle": {
+			"type": "string",
+			"default": "check",
+			"enum": [ "check", "none", "number", "svg" ]
+		},
+		"markerSvgUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"markerImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"sectionBackground": {
+			"type": "string",
+			"default": "none",
+			"enum": [ "none", "white", "offwhite", "surface" ]
+		},
+		"headingLeading": {
+			"type": "number",
+			"default": 1.14
+		},
+		"cardHeadingLeading": {
+			"type": "number",
+			"default": 1.25
+		}
+	}
+}

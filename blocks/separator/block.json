@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/separator",
+	"title": "Rise Separator",
+	"category": "rise-landing",
+	"icon": "image-flip-horizontal",
+	"description": "A scrolling strip of Rise logos and short phrases.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": { "attributes": {}, "viewportWidth": 500 },
+	"supports": { "html": false, "customClassName": false, "reusable": false },
+	"attributes": {
+		"background": { "type": "string", "default": "white" },
+		"motion": { "type": "string", "default": "auto" },
+		"direction": { "type": "string", "default": "left" },
+		"gap": { "type": "number", "default": 24 },
+		"speed": { "type": "number", "default": 80 },
+		"scrollSpeed": { "type": "number", "default": 100 },
+		"pauseOnHover": { "type": "boolean", "default": false },
+		"texts": { "type": "array", "default": [ "Move with Rise" ] },
+		"logoChoice": { "type": "string", "default": "fitness" },
+		"showMainLogo": { "type": "boolean", "default": true },
+		"customLogoId": { "type": "number", "default": 0 },
+		"dividerLogoChoice": { "type": "string", "default": "brand" },
+		"customDividerLogoId": { "type": "number", "default": 0 }
+	}
+}

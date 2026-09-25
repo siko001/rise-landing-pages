@@ -1,0 +1,16 @@
+/* Divi caps Gutenberg blocks and the page title at 823px. Rise content is full width in both page layouts. */
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .rise-lp-editor,
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > * {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+}
+
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper::before {
+  content: 'Page Name:';
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-size: 12px;
+  font-weight: 700;
+}

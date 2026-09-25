@@ -1,0 +1,120 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rise-landing/faq",
+	"version": "1.0.0",
+	"title": "Rise FAQ",
+	"category": "rise-landing",
+	"icon": "editor-help",
+	"description": "Answer up to twenty common questions in an accessible accordion.",
+	"textdomain": "rise-landing-pages",
+	"editorScript": "rise-landing-editor",
+	"example": {
+		"attributes": {},
+		"viewportWidth": 500
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false
+	},
+	"attributes": {
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Your questions"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Good to know before you start"
+		},
+		"intro": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"question": "How do I get started?",
+					"answer": "Add the booking instructions for this service."
+				},
+				{
+					"question": "What should I bring?",
+					"answer": "Explain anything visitors should prepare before their appointment."
+				},
+				{
+					"question": "Where can I find you?",
+					"answer": "Add directions and any useful access or parking information."
+				}
+			]
+		},
+		"singleOpen": {
+			"type": "boolean",
+			"default": true
+		},
+		"firstOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"faqMediaMode": {
+			"type": "string",
+			"default": "text",
+			"enum": [ "text", "section", "items" ]
+		},
+		"faqImageSide": {
+			"type": "string",
+			"default": "left",
+			"enum": [ "left", "right" ]
+		},
+		"faqImageAnimation": {
+			"type": "string",
+			"default": "inherit",
+			"enum": [ "inherit", "fade", "tiles" ]
+		},
+		"showDashes": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"focalX": {
+			"type": "number",
+			"default": 50
+		},
+		"focalY": {
+			"type": "number",
+			"default": 50
+		},
+		"mediaFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"sectionBackground": {
+			"type": "string",
+			"default": "none",
+			"enum": [ "none", "white", "offwhite", "surface" ]
+		},
+		"headingLeading": {
+			"type": "number",
+			"default": 1.14
+		},
+		"cardHeadingLeading": {
+			"type": "number",
+			"default": 1.5
+		}
+	}
+}
