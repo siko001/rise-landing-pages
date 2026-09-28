@@ -31,6 +31,17 @@ export default function EditableButton( props ) {
 	const [ isOpen, setIsOpen ] = useState( false );
 	const buttonRef = useRef( null );
 	const displayLabel = label || fallbackLabel;
+	const medical = window.riseLandingEditor?.rootClass?.includes(
+		'rise-lp--medical-layout'
+	);
+	const buttonText = (
+		<>
+			<span className="rise-lp__button-label">{ displayLabel }</span>
+			<span className="rise-lp__button-copy" aria-hidden="true">
+				{ displayLabel }
+			</span>
+		</>
+	);
 
 	return (
 		<>
@@ -51,10 +62,11 @@ export default function EditableButton( props ) {
 					setIsOpen( true );
 				} }
 			>
-				<span className="rise-lp__button-label">{ displayLabel }</span>
-				<span className="rise-lp__button-copy" aria-hidden="true">
-					{ displayLabel }
-				</span>
+				{ medical ? (
+					<span className="rise-lp__button-roll">{ buttonText }</span>
+				) : (
+					buttonText
+				) }
 			</button>
 			{ isOpen && (
 				<Popover

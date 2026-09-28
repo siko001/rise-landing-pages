@@ -258,16 +258,23 @@
 			applyLinksPreset = ( links ) => {
 				[ 'privacy_url', 'terms_url', 'about_url' ].forEach(
 					( key ) => {
+						if (
+							! Object.prototype.hasOwnProperty.call( links, key )
+						) {
+							return;
+						}
 						const field = document.getElementById(
 							'rise-setting-' + key
 						);
 						field.value = links[ key ] || '';
 					}
 				);
-				rows.replaceChildren();
-				nextIndex = 0;
-				links.footer_links.forEach( addFooterLink );
-				updateLimit();
+				if ( Array.isArray( links.footer_links ) ) {
+					rows.replaceChildren();
+					nextIndex = 0;
+					links.footer_links.forEach( addFooterLink );
+					updateLimit();
+				}
 			};
 
 			add.addEventListener( 'click', function () {

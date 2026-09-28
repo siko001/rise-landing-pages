@@ -20,7 +20,7 @@ REQUIRED = (
     'build/editor-rtl.css', 'build/smooth-scroll.js', 'build/smooth-scroll.asset.php',
     'assets/frontend.css', 'assets/frontend.js', 'assets/admin-list.js',
     'assets/chrome-preview-frame.js', 'assets/editor-divi.css',
-    'assets/fitness-editor-font.css', 'assets/fonts/F37Judge-Bold.ttf',
+    'assets/judge-font.css', 'assets/fonts/F37Judge-Bold.ttf',
     'assets/marquee.js', 'assets/media.js', 'assets/settings.css', 'assets/settings.js',
     'assets/rise-mark.svg', 'assets/rise-wordmark.svg',
     'assets/rise-medical-icon.png', 'assets/rise-physio-icon.png',

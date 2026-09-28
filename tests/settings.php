@@ -3,6 +3,7 @@
 
 use RiseLandingPages\Settings\Settings;
 use RiseLandingPages\Frontend\Renderer;
+use RiseLandingPages\Frontend\Frontend;
 
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	exit( 'Run through WP-CLI.' );
@@ -28,6 +29,11 @@ $bad_brand = static function ( $settings ) {
 	$settings['booking_url']   = 'javascript:alert(1)';
 	$settings['content_width'] = 99999;
 	return $settings;
+};
+$medical_background = '#001C55';
+$medical_surface = '#002E75';
+$medical_palette = static function ( $settings ) use ( &$medical_background, &$medical_surface ) {
+	return array_merge( $settings, Settings::presets()['medical']['values'], array( 'background_color' => $medical_background, 'surface_color' => $medical_surface ) );
 };
 
 if ( empty( $admin ) ) {
@@ -125,7 +131,28 @@ try {
 	$assert( '' === Settings::sanitize( array( 'logo_preset' => 'javascript:alert(1)' ) )['logo_preset'], 'An unknown preset logo is rejected' );
 	$assert( '#61FFD6' === $presets['physio']['values']['primary_color'] && 'normal' === $presets['physio']['values']['heading_style'] && '#000000' === $presets['physio']['values']['background_color'], 'Physio preset uses mint, dark backgrounds and normal Judge headings' );
 	$assert( '#EC1C2B' === $presets['fitness']['values']['primary_color'] && 'italic' === $presets['fitness']['values']['heading_style'] && 'F37Judge-condensed, sans-serif' === $presets['fitness']['values']['button_font'] && 'tiles' === $presets['fitness']['values']['image_animation'], 'Fitness preset uses red, italic condensed Judge typography and the tile image reveal' );
-	$assert( '#002E75' === $presets['medical']['values']['primary_color'] && '#FFFFFF' === $presets['medical']['values']['background_color'] && 'italic' === $presets['medical']['values']['button_style'], 'Medical preset uses navy, a light background and italic button labels' );
+	$assert( '#002E75' === $presets['medical']['values']['primary_color'] && '#0B72EC' === $presets['medical']['values']['secondary_color'] && '#001C55' === $presets['medical']['values']['background_color'] && '#002E75' === $presets['medical']['values']['surface_color'] && '#FFFFFF' === $presets['medical']['values']['text_color'] && '#DBE9FF' === $presets['medical']['values']['muted_color'] && '#002E75' === $presets['medical']['values']['button_text_color'] && '#FFFFFF' === $presets['medical']['values']['outline_color'], 'Medical preset matches the blue page and readable text and button colours' );
+	$assert( '"F37 Judge", F37Judge, sans-serif' === $presets['medical']['values']['heading_font'] && '"Rise Poppins", sans-serif' === $presets['medical']['values']['body_font'] && '"F37 Judge", F37Judge, sans-serif' === $presets['medical']['values']['button_font'] && 'normal' === $presets['medical']['values']['heading_style'] && 'italic' === $presets['medical']['values']['button_style'] && '700' === $presets['medical']['values']['button_weight'], 'Medical preset uses Judge for headings and italic buttons and Poppins for body text' );
+	add_filter( 'rise_landing_brand_settings', $medical_palette );
+	$assert( false !== strpos( Frontend::rise_medical_background(), 'linear-gradient(' ) && ! Frontend::rise_medical_is_light( '#001C55' ), 'Medical preset blue keeps its fixed gradient and light lettering' );
+	$medical_background = '#000000';
+	$black_palette = Frontend::rise_medical_palette_variables();
+	$assert( '#000000' === Frontend::rise_medical_background() && false !== strpos( $black_palette, '--rise-medical-text:#FFFFFF;' ) && false !== strpos( $black_palette, '--rise-medical-button-bg:#ffffff;' ), 'A black Medical background uses a solid fill and light text and buttons' );
+	$medical_background = '#F7F7F2';
+	$offwhite_palette = Frontend::rise_medical_palette_variables();
+	$assert( '#F7F7F2' === Frontend::rise_medical_background() && Frontend::rise_medical_is_light( '#F7F7F2' ) && false !== strpos( $offwhite_palette, '--rise-medical-text:#002e75;' ) && false !== strpos( $offwhite_palette, '--rise-medical-button-bg:#002E75;' ), 'Off-white Medical backgrounds use dark text and navy buttons' );
+	$medical_background = '#FFFFFF';
+	$medical_surface = '#FFFFFF';
+	$white_palette = Frontend::rise_medical_palette_variables();
+	$assert( '#FFFFFF' === Frontend::rise_medical_background() && false !== strpos( $white_palette, '--rise-medical-card-text:#002e75;' ) && false !== strpos( $white_palette, '--rise-medical-card-button-bg:#002e75;' ), 'White Medical cards switch their text and buttons to navy' );
+	foreach ( array( 'hero', 'services', 'process', 'benefits', 'faq', 'cta' ) as $section ) {
+		$block_type = WP_Block_Type_Registry::get_instance()->get_registered( 'rise-landing/' . $section );
+		$block_attributes = $block_type->get_attributes();
+		$allowed_backgrounds = $block_attributes['sectionBackground']['enum'];
+		$assert( ! array_diff( array( 'white', 'offwhite', 'black', 'surface' ), $allowed_backgrounds ) && false !== strpos( Renderer::render( $section, array( 'sectionBackground' => 'black' ) ), 'rise-lp__section--bg-black' ), 'Medical ' . $section . ' can save and render every background choice' );
+		$assert( in_array( 'poppins', $block_attributes['headingFont']['enum'], true ) && false !== strpos( Renderer::render( $section, array( 'headingFont' => 'poppins' ) ), 'rise-lp__section--font-poppins' ), 'Medical ' . $section . ' can save and render Poppins headings' );
+	}
+	remove_filter( 'rise_landing_brand_settings', $medical_palette );
 	$assert( '' === $presets['generic']['values']['body_font'] && '' === $presets['generic']['values']['heading_font'], 'Generic preset retains inherited typography' );
 	$assert( array( 1860 ) === array_values( array_unique( array_column( array_column( $presets, 'values' ), 'content_width' ) ) ), 'Every preset sets maximum content width to 1860 pixels' );
 	$assert( __( 'Book an appointment', 'rise-landing-pages' ) === $presets['physio']['values']['cta_label'] && __( 'Book Now', 'rise-landing-pages' ) === $presets['fitness']['values']['cta_label'], 'Physio and Fitness presets set their booking button labels' );
@@ -139,14 +166,15 @@ try {
 	$assert( false !== strpos( $presets['physio']['links']['privacy_url'], 'privacy-policy' ) && false !== strpos( $presets['physio']['links']['terms_url'], 'terms' ) && false !== strpos( $presets['physio']['links']['about_url'], 'about' ), 'Physio preset provides privacy, terms and about links' );
 	$assert( false !== strpos( $presets['fitness']['links']['terms_url'], 'terms-and-conditions' ) && false !== strpos( $presets['fitness']['links']['about_url'], 'about' ), 'Fitness preset uses its published terms page and About section or page' );
 	$assert( array( 'Facebook', 'Instagram' ) === array_column( $presets['physio']['links']['footer_links'], 'label' ) && 'https://www.facebook.com/wearerisephysio/' === $presets['physio']['links']['footer_links'][0]['url'] && 'https://www.instagram.com/wearerisefitness/' === $presets['fitness']['links']['footer_links'][1]['url'], 'Physio and Fitness presets include their social footer links' );
-	$assert( ! isset( $presets['medical']['links'] ) && ! isset( $presets['generic']['links'] ), 'Medical and Generic presets leave current links in place' );
+	$assert( '/about/' === $presets['medical']['links']['about_url'] && '/about/' === Settings::sanitize( array( 'about_url' => $presets['medical']['links']['about_url'] ) )['about_url'] && ! isset( $presets['medical']['links']['footer_links'] ) && ! isset( $presets['generic']['links'] ), 'Medical preset uses a portable About link while preserving unrelated links' );
 	$ordered = Settings::sanitize( array( 'contact_mode' => 'multiple', 'companies' => array( $physio_locations[2], $physio_locations[0], $physio_locations[1] ) ) );
 	$assert( array( 'Balzan', 'Sliema', 'Qormi' ) === array_column( $ordered['companies'], 'name' ), 'Saved location order follows the submitted card order' );
 	foreach ( array( 'physio', 'fitness', 'medical' ) as $brand ) {
 		$preset = $presets[ $brand ]['values'];
 		$sanitized = Settings::sanitize( $preset );
 		$expected_weight = 'fitness' === $brand ? '500' : '700';
-		$assert( 0 === $sanitized['button_radius'] && 'uppercase' === $sanitized['button_transform'] && $expected_weight === $sanitized['button_weight'] && 'Poppins, "Poppins Placeholder", sans-serif' === $sanitized['body_font'], $brand . ' preset uses square, uppercase buttons and site-owned Poppins body fonts' );
+		$expected_font = 'medical' === $brand ? '"Rise Poppins", sans-serif' : 'Poppins, "Poppins Placeholder", sans-serif';
+		$assert( 0 === $sanitized['button_radius'] && 'uppercase' === $sanitized['button_transform'] && $expected_weight === $sanitized['button_weight'] && $expected_font === $sanitized['body_font'], $brand . ' preset uses square, uppercase buttons and the correct site font' );
 		$assert( ! isset( $preset['logo_id'] ) && ! isset( $preset['phone'] ), $brand . ' preset keeps Media Library IDs and contact fields outside its styling values' );
 	}
 	$assert( $defaults === Settings::get(), 'Offering and validating presets does not overwrite the existing saved profile' );
@@ -203,6 +231,7 @@ try {
 	$assert( 20 === substr_count( $css, '--rise-' ) && false !== strpos( $css, '--rise-content-width:1920px;' ), 'All twenty design properties use the agreed names and units' );
 	$assert( false !== strpos( $css, '--rise-outline-color:' . $defaults['primary_color'] . ';' ) && false !== strpos( $css, '--rise-font-outline:inherit;' ), 'Blank outline colour and font fall back to the primary colour and heading font' );
 	remove_filter( 'rise_landing_brand_settings', $bad_brand );
+	remove_filter( 'rise_landing_brand_settings', $medical_palette );
 
 	Settings::enqueue_assets( 'edit.php' );
 	$assert( ! wp_style_is( 'rise-landing-settings', 'enqueued' ) && ! wp_script_is( 'rise-landing-settings', 'enqueued' ), 'Settings assets do not load on ordinary administration screens' );

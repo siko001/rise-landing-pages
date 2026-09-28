@@ -47,6 +47,8 @@ class Renderer {
 			$overlay_color = sanitize_hex_color( self::value( $attributes, 'overlayColor' ) ) ?: '#000000';
 			if ( 'surface' === self::value( $attributes, 'sectionBackground' ) ) { $overlay_color = 'var(--rise-surface)'; }
 			if ( 'offwhite' === self::value( $attributes, 'sectionBackground' ) ) { $overlay_color = '#f5f5f5'; }
+			if ( 'white' === self::value( $attributes, 'sectionBackground' ) ) { $overlay_color = '#ffffff'; }
+			if ( 'black' === self::value( $attributes, 'sectionBackground' ) ) { $overlay_color = '#000000'; }
 			$style .= '--rise-overlay-color:' . $overlay_color . ';';
 			$style .= '--rise-overlay-text:' . ( sanitize_hex_color( self::value( $attributes, 'overlayTextColor' ) ) ?: '#ffffff' ) . ';';
 		}
@@ -75,9 +77,11 @@ class Renderer {
 			if ( $processor->next_tag( 'SECTION' ) ) {
 				if ( $style ) { $processor->set_attribute( 'style', $style ); }
 				$background = self::value( $attributes, 'sectionBackground', 'none' );
-				$allowed_backgrounds = in_array( $name, array( 'process', 'benefits', 'faq', 'cta' ), true ) ? array( 'none', 'white', 'offwhite', 'surface' ) : array( 'none', 'offwhite', 'surface' );
+				$allowed_backgrounds = array( 'none', 'white', 'offwhite', 'surface', 'black' );
 				$background = in_array( $background, $allowed_backgrounds, true ) ? $background : 'none';
 				$processor->add_class( 'rise-lp__section--bg-' . $background );
+				$heading_font = self::value( $attributes, 'headingFont', 'judge' );
+				$processor->add_class( 'rise-lp__section--font-' . ( 'poppins' === $heading_font ? 'poppins' : 'judge' ) );
 				$html = $processor->get_updated_html();
 			}
 		}
@@ -252,7 +256,8 @@ class Renderer {
 
 	private static function button_label( $label ) {
 		$label = esc_html( wp_strip_all_tags( $label ) );
-		return '<span class="rise-lp__button-label">' . $label . '</span><span class="rise-lp__button-copy" aria-hidden="true">' . $label . '</span>';
+		$contents = '<span class="rise-lp__button-label">' . $label . '</span><span class="rise-lp__button-copy" aria-hidden="true">' . $label . '</span>';
+		return Frontend::is_rise_medical_theme() ? '<span class="rise-lp__button-roll">' . $contents . '</span>' : $contents;
 	}
 
 	/** Use the saved Hero file; other attachment images retain native srcset. */

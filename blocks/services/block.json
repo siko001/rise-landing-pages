@@ -70,8 +70,9 @@
 		"sectionBackground": {
 			"type": "string",
 			"default": "none",
-			"enum": [ "none", "offwhite", "surface" ]
+			"enum": [ "none", "white", "offwhite", "surface", "black" ]
 		},
+		"headingFont": { "type": "string", "default": "judge", "enum": [ "judge", "poppins" ] },
 		"displayMode": {
 			"type": "string",
 			"default": "slider",

@@ -77,8 +77,9 @@
 		"sectionBackground": {
 			"type": "string",
 			"default": "none",
-			"enum": [ "none", "white", "offwhite", "surface" ]
+			"enum": [ "none", "white", "offwhite", "surface", "black" ]
 		},
+		"headingFont": { "type": "string", "default": "judge", "enum": [ "judge", "poppins" ] },
 		"headingLeading": {
 			"type": "number",
 			"default": 1.14

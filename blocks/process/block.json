@@ -85,8 +85,9 @@
 		"sectionBackground": {
 			"type": "string",
 			"default": "none",
-			"enum": [ "none", "white", "offwhite", "surface" ]
+			"enum": [ "none", "white", "offwhite", "surface", "black" ]
 		},
+		"headingFont": { "type": "string", "default": "judge", "enum": [ "judge", "poppins" ] },
 		"markerMode": {
 			"type": "string",
 			"enum": [ "number", "global", "items" ]

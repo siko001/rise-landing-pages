@@ -1777,8 +1777,15 @@ body.rise-lp-hide-site-header #page-container {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
+  scrollbar-color: var(--rise-primary) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   max-width: none;
   padding-block: 8px 20px;
+}
+
+.rise-lp .rise-lp__services-grid.rise-lp__services-grid--slider::-webkit-scrollbar {
+  display: none;
 }
 
 .rise-lp .rise-lp__services-grid--slider .rise-lp__service-card {
@@ -2677,4 +2684,439 @@ body.rise-lp-hide-site-header #page-container {
 .rise-lp .rise-lp__process:has(.rise-lp__process-spacers) .rise-lp__section-header,
 .rise-lp .rise-lp__services:has(.rise-lp__services-spacers) .rise-lp__section-header {
   margin-bottom: 0;
+}
+
+/* The Medical preset uses its blue gradient until another background is chosen. */
+body.rise-landing.rise-medical-lp {
+  background: var(--rise-medical-page-background) fixed;
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout {
+  flex: 1 0 auto;
+  min-height: 0;
+  --rise-medical-link-hover: #9edcff;
+  background: var(--rise-medical-page-background) fixed;
+  color: var(--rise-medical-text);
+}
+
+/* Medical display type is Judge; Poppins remains the body copy face. */
+.rise-lp--medical-layout :is(.rise-lp__heading, .rise-lp__card-title, .rise-lp__faq-question, .rise-lp-editor__faq-question, .rise-lp__footer-heading, .rise-lp__brand-name) {
+  font-family: "F37 Judge", "F37Judge", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rise-lp--medical-layout .rise-lp__section--font-poppins :is(.rise-lp__heading, .rise-lp__card-title, .rise-lp__faq-question, .rise-lp-editor__faq-question) {
+  font-family: "Rise Poppins", Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(.rise-lp__header, .rise-lp__footer) {
+  --rise-medical-link-hover: #002e75;
+  border-color: var(--rise-medical-border);
+  background: transparent;
+  color: var(--rise-medical-muted);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(.rise-lp__header, .rise-lp__footer) .rise-lp__brand {
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(.rise-lp__header, .rise-lp__footer) .rise-lp__logo {
+  width: 175px;
+  max-width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+body.rise-medical-light .rise-lp--medical-layout :is(.rise-lp__header, .rise-lp__footer) .rise-lp__logo {
+  filter: brightness(0);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__footer-bottom {
+  border-color: var(--rise-medical-border);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(.rise-lp__nav-link, .rise-lp__footer a, .rise-lp__footer-heading) {
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(a, a:hover, a:focus-visible) {
+  text-decoration: none;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(.rise-lp__intro, .rise-lp__card-copy) a {
+  color: inherit;
+  font-weight: 700;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout a:not(.rise-lp__button) {
+  transition: color 180ms ease;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout a:not(.rise-lp__button):is(:hover, :focus-visible) {
+  color: var(--rise-medical-link-hover);
+}
+
+body.rise-medical-light .rise-lp--medical-layout :is(.rise-lp__header, .rise-lp__footer) {
+  --rise-medical-link-hover: #0b72ec;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout :is(.rise-lp__section, .rise-lp__cta-panel) {
+  --rise-text: var(--rise-medical-text);
+  --rise-muted: var(--rise-medical-muted);
+  --rise-faq-text: var(--rise-medical-text);
+  --rise-faq-muted: var(--rise-medical-muted);
+  --rise-faq-border: var(--rise-medical-border);
+  --rise-faq-accent: var(--rise-medical-text);
+  --rise-faq-pill-text: var(--rise-medical-button-text);
+  background: transparent;
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__section:is(.rise-lp__section--bg-white, .rise-lp__section--bg-offwhite) {
+  --rise-medical-text: #002e75;
+  --rise-medical-link-hover: #0b72ec;
+  --rise-medical-muted: #344f75;
+  --rise-medical-border: rgb(0 46 117 / 30%);
+  --rise-medical-button-bg: #002e75;
+  --rise-medical-button-text: #fff;
+  --rise-medical-button-hover-bg: #fff;
+  --rise-medical-button-hover-text: #002e75;
+  --rise-outline-color: #002e75;
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__section.rise-lp__section--bg-white {
+  background: #fff;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__section.rise-lp__section--bg-offwhite {
+  background: #f5f5f5;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__section.rise-lp__section--bg-black {
+  --rise-medical-text: #fff;
+  --rise-medical-muted: #dbe9ff;
+  --rise-medical-border: rgb(219 233 255 / 35%);
+  --rise-medical-button-bg: #fff;
+  --rise-medical-button-text: #002e75;
+  --rise-medical-button-hover-bg: #002e75;
+  --rise-medical-button-hover-text: #fff;
+  --rise-outline-color: #fff;
+  background: #000;
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__section.rise-lp__section--bg-surface {
+  --rise-medical-text: var(--rise-medical-card-text);
+  --rise-medical-muted: var(--rise-medical-card-muted);
+  --rise-medical-button-bg: var(--rise-medical-card-button-bg);
+  --rise-medical-button-text: var(--rise-medical-card-button-text);
+  --rise-medical-button-hover-bg: var(--rise-medical-card-button-text);
+  --rise-medical-button-hover-text: var(--rise-medical-card-button-bg);
+  --rise-outline-color: var(--rise-medical-card-text);
+  background: var(--rise-surface);
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__eyebrow {
+  color: var(--rise-medical-muted);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__hero--overlay.rise-lp__section--bg-none:has(.rise-lp__hero-image) {
+  --rise-medical-text: #fff;
+  --rise-medical-muted: #fff;
+  --rise-medical-button-bg: #fff;
+  --rise-medical-button-text: #002e75;
+  --rise-medical-button-hover-bg: #002e75;
+  --rise-medical-button-hover-text: #fff;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__hero--text-only .rise-lp__heading {
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__hero--text-only.rise-lp__hero--overlay::before {
+  opacity: 0;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__step-number {
+  border-color: var(--rise-medical-border);
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__process-grid--circle .rise-lp__step-number {
+  color: #fff;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__process-grid--circle::before {
+  border: 0;
+  background: linear-gradient(135deg, #001c55, #0759bd 55%, #269ff5);
+  -webkit-mask: radial-gradient(farthest-side, transparent 58%, #000 59%);
+  mask: radial-gradient(farthest-side, transparent 58%, #000 59%);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__process-grid--circle .rise-lp__step-marker {
+  background: linear-gradient(135deg, #001c55, #0759bd);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__process-grid--circle .rise-lp__step-marker::after {
+  background: #dbe9ff;
+}
+
+@container rise-process (max-width: 900px) {
+
+  body.rise-medical-lp .rise-lp--medical-layout .rise-lp__process-grid--circle::before {
+    aspect-ratio: auto;
+    background: linear-gradient(180deg, #dbe9ff, #fff);
+    -webkit-mask: none;
+    mask: none;
+  }
+}
+
+/* stylelint-disable no-descending-specificity -- These are Rise Medical overrides for the base button rules. */
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__button,
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__button-label {
+  white-space: nowrap;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid:not(.rise-lp__services-grid--pricing, .rise-lp__services-grid--image) .rise-lp__service-card {
+  --rise-text: var(--rise-medical-card-text);
+  --rise-muted: var(--rise-medical-card-muted);
+  --rise-medical-button-bg: var(--rise-medical-card-button-bg);
+  --rise-medical-button-text: var(--rise-medical-card-button-text);
+  --rise-medical-button-hover-bg: var(--rise-medical-card-button-text);
+  --rise-medical-button-hover-text: var(--rise-medical-card-button-bg);
+  border-color: var(--rise-medical-border);
+  background: var(--rise-surface);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--pricing .rise-lp__service-card {
+  --rise-text: var(--rise-medical-text);
+  --rise-muted: var(--rise-medical-muted);
+  border-color: var(--rise-medical-text);
+  background: transparent;
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--pricing .rise-lp__service-card:hover {
+  border-color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--pricing .rise-lp__service-features li::before {
+  background: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--pricing .rise-lp__service-price-qualifier {
+  border-color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--pricing :is(.rise-lp__service-features li, .rise-lp__service-price-block, .rise-lp__card-title) {
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--pricing .rise-lp__service-badge {
+  background: var(--rise-medical-button-bg);
+  color: var(--rise-medical-button-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--image .rise-lp__service-card,
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--image .rise-lp__service-card:hover {
+  --rise-text: var(--rise-medical-card-text);
+  --rise-muted: var(--rise-medical-card-muted);
+  --rise-medical-button-bg: var(--rise-medical-card-button-bg);
+  --rise-medical-button-text: var(--rise-medical-card-button-text);
+  --rise-medical-button-hover-bg: var(--rise-medical-card-button-text);
+  --rise-medical-button-hover-text: var(--rise-medical-card-button-bg);
+  border-color: var(--rise-medical-border);
+  background: var(--rise-surface);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--image :is(.rise-lp__card-title, .rise-lp__card-copy) {
+  color: var(--rise-medical-card-text);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__services-grid--image .rise-lp__service-card:has(.rise-lp__service-image) :is(.rise-lp__card-title, .rise-lp__card-copy) {
+  color: #fff;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__button {
+  position: relative;
+  min-height: 44px;
+  padding: 2px 23px;
+  border-color: var(--rise-medical-button-bg) !important;
+  background: var(--rise-medical-button-bg) !important;
+  color: var(--rise-medical-button-text) !important;
+  font-family: var(--rise-font-button, "F37 Judge", "F37Judge", sans-serif);
+  font-size: 22px;
+  font-style: var(--rise-button-style, italic);
+  font-synthesis: style;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__service-card .rise-lp__button {
+  min-height: 44px;
+  padding: 2px 23px;
+  font-family: var(--rise-font-button, "F37 Judge", "F37Judge", sans-serif);
+  font-size: 22px;
+  font-style: var(--rise-button-style, italic);
+  font-synthesis: style;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout a.rise-lp__button {
+  min-width: min(220px, 100%);
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__button:is(:hover, :focus-visible) {
+  border-color: var(--rise-medical-button-bg) !important;
+  background: var(--rise-medical-button-hover-bg) !important;
+  color: var(--rise-medical-button-hover-text) !important;
+  opacity: 1;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__header {
+  --rise-medical-button-bg: #002e75;
+  --rise-medical-button-text: #fff;
+  --rise-medical-button-hover-bg: #fff;
+  --rise-medical-button-hover-text: #002e75;
+}
+
+body.rise-medical-lp .rise-lp--medical-layout .rise-lp__header .rise-lp__button:is(:hover, :focus-visible) {
+  border-color: var(--rise-medical-button-hover-bg) !important;
+}
+
+.rise-lp--medical-layout .rise-lp__button .rise-lp__button-roll {
+  position: relative;
+  display: block;
+  padding: 4px 5px;
+  overflow: hidden;
+  line-height: inherit;
+}
+
+.rise-lp--medical-layout .rise-lp__button .rise-lp__button-roll > :is(.rise-lp__button-label, .rise-lp__button-copy) {
+  display: block;
+  padding: 0;
+  color: inherit !important;
+  line-height: inherit;
+  white-space: nowrap;
+  text-align: center;
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.rise-lp--medical-layout .rise-lp__button .rise-lp__button-roll > .rise-lp__button-copy {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 5px;
+  left: 5px;
+  min-height: 0;
+}
+
+.rise-lp--medical-layout .rise-lp__button:is(:hover, :focus-visible) .rise-lp__button-roll > :is(.rise-lp__button-label, .rise-lp__button-copy) {
+  transform: translateY(calc(-100% - 8px));
+}
+/* stylelint-enable no-descending-specificity */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rise-lp--medical-layout .rise-lp__button .rise-lp__button-roll > :is(.rise-lp__button-label, .rise-lp__button-copy) {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+
+  body.rise-medical-lp .rise-lp--medical-layout .rise-lp__button {
+    padding-inline: 15px;
+    font-size: clamp(18px, 4.4vw, 22px);
+  }
+}
+
+body.rise-medical-lp :is(.rise-header, .rise-footer) .rise-button {
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 2px 23px;
+  border: 1px solid var(--rise-medical-button-bg);
+  background: var(--rise-medical-button-bg);
+  color: var(--rise-medical-button-text);
+  font-family: "F37 Judge", "F37Judge", sans-serif;
+  font-size: 22px;
+  font-style: italic;
+  font-synthesis: style;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+body.rise-medical-lp :is(.rise-header, .rise-footer) .rise-button__label {
+  padding: 4px 5px;
+}
+
+body.rise-medical-lp :is(.rise-header, .rise-footer) .rise-button__copy {
+  top: calc(100% + 4px);
+  right: 5px;
+  left: 5px;
+  width: auto;
+}
+
+body.rise-medical-lp :is(.rise-header, .rise-footer) .rise-roll-button:is(:hover, :focus-visible) :is(.rise-button__text, .rise-button__copy) {
+  transform: translateY(calc(-100% - 8px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  body.rise-medical-lp :is(.rise-header, .rise-footer) .rise-roll-button:is(:hover, :focus-visible) :is(.rise-button__text, .rise-button__copy) {
+    transform: none;
+  }
+}
+
+body.rise-medical-lp .rise-header .rise-button--booking {
+  min-width: 220px;
+}
+
+@media (max-width: 600px) {
+
+  body.rise-medical-lp .rise-header .rise-button--booking {
+    min-width: 0;
+    padding-inline: 16px;
+  }
+}
+
+body.rise-medical-lp :is(.rise-header, .rise-footer) .rise-button:is(:hover, :focus-visible) {
+  background: var(--rise-medical-button-hover-bg);
+  color: var(--rise-medical-button-hover-text);
+}
+
+body.rise-medical-lp :is(.rise-header .rise-button--booking, .rise-footer .rise-button--page) {
+  border-color: #002e75;
+  background: #002e75;
+  color: #fff;
+}
+
+body.rise-medical-lp :is(.rise-header .rise-button--booking, .rise-footer .rise-button--page):is(:hover, :focus-visible) {
+  border-color: #fff;
+  background: #fff;
+  color: #002e75;
+}
+
+body.rise-medical-lp.rise-site :is(.rise-header, .rise-footer) {
+  color: var(--rise-medical-text);
+}
+
+body.rise-medical-light.rise-site :is(.rise-header, .rise-footer) :is(.rise-brand img, .rise-group) {
+  filter: brightness(0);
 }

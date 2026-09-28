@@ -3,7 +3,10 @@ import { Dropdown, ToolbarButton, ToolbarGroup } from '@wordpress/components';
 import { useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-export default function BlockSettingsToolbar( { backgroundControl } ) {
+export default function BlockSettingsToolbar( {
+	backgroundControl,
+	headingFontControl,
+} ) {
 	const { openGeneralSidebar } = useDispatch( 'core/edit-post' );
 	const settingsButton = ( onClick, isPressed = false ) => (
 		<ToolbarButton
@@ -17,6 +20,31 @@ export default function BlockSettingsToolbar( { backgroundControl } ) {
 	return (
 		<BlockControls>
 			<ToolbarGroup>
+				{ headingFontControl && (
+					<Dropdown
+						popoverProps={ { placement: 'bottom-start' } }
+						renderToggle={ ( { isOpen, onToggle } ) => (
+							<ToolbarButton
+								icon="editor-paragraph"
+								title={ __(
+									'Heading font',
+									'rise-landing-pages'
+								) }
+								aria-label={ __(
+									'Heading font',
+									'rise-landing-pages'
+								) }
+								isPressed={ isOpen }
+								onClick={ onToggle }
+							/>
+						) }
+						renderContent={ () => (
+							<div className="rise-lp-editor__background-popover">
+								{ headingFontControl }
+							</div>
+						) }
+					/>
+				) }
 				{ backgroundControl ? (
 					<Dropdown
 						popoverProps={ { placement: 'bottom-start' } }

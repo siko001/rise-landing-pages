@@ -65,6 +65,9 @@ export function useDefaults() {
 }
 
 export function SectionFrame( { attributes, setAttributes, title, children } ) {
+	const medical = window.riseLandingEditor?.rootClass?.includes(
+		'rise-lp--medical-layout'
+	);
 	const sectionBackground =
 		attributes.sectionBackground === 'accent'
 			? 'none'
@@ -74,6 +77,8 @@ export function SectionFrame( { attributes, setAttributes, title, children } ) {
 			window.riseLandingEditor?.rootClass || 'rise-lp'
 		} rise-lp-editor rise-lp-editor--bg-${ sectionBackground }${
 			attributes.hidden ? ' rise-lp-editor--hidden' : ''
+		} rise-lp-editor--font-${
+			attributes.headingFont === 'poppins' ? 'poppins' : 'judge'
 		}`,
 		style: {
 			...brandStyle(),
@@ -139,6 +144,24 @@ export function SectionFrame( { attributes, setAttributes, title, children } ) {
 	return (
 		<>
 			<BlockSettingsToolbar
+				headingFontControl={
+					medical ? (
+						<SelectControl
+							label={ __( 'Heading font', 'rise-landing-pages' ) }
+							value={ attributes.headingFont || 'judge' }
+							options={ [
+								{ label: '37 Judge', value: 'judge' },
+								{
+									label: 'Poppins (uppercase)',
+									value: 'poppins',
+								},
+							] }
+							onChange={ ( headingFont ) =>
+								setAttributes( { headingFont } )
+							}
+						/>
+					) : null
+				}
 				backgroundControl={
 					<SelectControl
 						label={
@@ -164,7 +187,8 @@ export function SectionFrame( { attributes, setAttributes, title, children } ) {
 										  ),
 								value: 'none',
 							},
-							...( [
+							...( medical ||
+							[
 								__(
 									'Frequently asked questions',
 									'rise-landing-pages'
@@ -180,6 +204,17 @@ export function SectionFrame( { attributes, setAttributes, title, children } ) {
 												'rise-landing-pages'
 											),
 											value: 'white',
+										},
+								  ]
+								: [] ),
+							...( medical
+								? [
+										{
+											label: __(
+												'Black',
+												'rise-landing-pages'
+											),
+											value: 'black',
 										},
 								  ]
 								: [] ),
@@ -200,13 +235,27 @@ export function SectionFrame( { attributes, setAttributes, title, children } ) {
 								sectionBackground: selectedBackground,
 								...( title ===
 									__( 'Hero', 'rise-landing-pages' ) &&
-								selectedBackground === 'offwhite' &&
+								[ 'offwhite', 'white' ].includes(
+									selectedBackground
+								) &&
 								( ! attributes.overlayTextColor ||
 									attributes.overlayTextColor.toLowerCase() ===
 										'#ffffff' )
 									? {
 											overlayTextColor: '#111111',
 									  }
+									: {} ),
+								...( title ===
+									__( 'Hero', 'rise-landing-pages' ) &&
+								[ 'offwhite', 'white' ].includes(
+									sectionBackground
+								) &&
+								! [ 'offwhite', 'white' ].includes(
+									selectedBackground
+								) &&
+								attributes.overlayTextColor?.toLowerCase() ===
+									'#111111'
+									? { overlayTextColor: '#ffffff' }
 									: {} ),
 							} )
 						}

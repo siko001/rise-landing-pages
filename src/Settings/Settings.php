@@ -148,12 +148,13 @@ final class Settings {
 			'medical' => array(
 				'label' => __( 'Rise Medical', 'rise-landing-pages' ),
 				'values' => array_merge( $generic, $common, array(
-					'brand_name' => 'Rise Medical', 'logo_preset' => 'medical', 'primary_color' => '#002E75', 'secondary_color' => '#E8EEF7', 'background_color' => '#FFFFFF',
+					'brand_name' => 'Rise Medical', 'logo_preset' => 'medical', 'primary_color' => '#002E75', 'secondary_color' => '#0B72EC', 'background_color' => '#001C55',
 					'cta_label' => __( 'BOOK MEDICAL IMAGING', 'rise-landing-pages' ), 'booking_url' => 'https://risephysio.uk1.cliniko.com/bookings?business_id=1916555807957194716',
-					'surface_color' => '#F3F5F8', 'text_color' => '#111111', 'muted_color' => '#595959', 'button_text_color' => '#FFFFFF',
-					'heading_font' => 'F37Judge-condensed, sans-serif', 'heading_style' => 'normal',
-					'button_font' => 'Poppins, "Poppins Placeholder", sans-serif', 'button_style' => 'italic', 'button_motion' => 'none',
+					'surface_color' => '#002E75', 'text_color' => '#FFFFFF', 'muted_color' => '#DBE9FF', 'button_text_color' => '#002E75', 'outline_color' => '#FFFFFF',
+					'heading_font' => '"F37 Judge", F37Judge, sans-serif', 'heading_style' => 'normal', 'body_font' => '"Rise Poppins", sans-serif',
+					'button_font' => '"F37 Judge", F37Judge, sans-serif', 'button_style' => 'italic', 'button_weight' => '700', 'button_motion' => 'none',
 				) ),
+				'links' => array( 'about_url' => '/about/' ),
 			),
 		);
 	}
@@ -500,7 +501,8 @@ final class Settings {
 		}
 		wp_enqueue_media();
 		wp_enqueue_style( 'rise-landing-settings', RISE_LP_URL . 'assets/settings.css', array(), RISE_LP_VERSION );
-		wp_enqueue_script( 'rise-landing-settings', RISE_LP_URL . 'assets/settings.js', array( 'media-views' ), RISE_LP_VERSION, true );
+		$script_version = filemtime( RISE_LP_PATH . 'assets/settings.js' ) ?: RISE_LP_VERSION;
+		wp_enqueue_script( 'rise-landing-settings', RISE_LP_URL . 'assets/settings.js', array( 'media-views' ), $script_version, true );
 		wp_localize_script(
 			'rise-landing-settings',
 			'riseLandingSettings',
@@ -552,7 +554,7 @@ final class Settings {
 						<details class="rise-settings__section rise-settings-presets" id="rise-preset" name="rise-settings-accordion">
 							<summary class="rise-settings__section-heading"><h2><?php esc_html_e( 'Start with a Rise brand', 'rise-landing-pages' ); ?></h2></summary>
 							<div class="rise-settings__section-content">
-								<p><?php esc_html_e( 'Presets fill brand styling, the default logo and a maximum content width of 1860px. Physio and Fitness also fill locations and links. Each Rise brand sets its booking button text; Medical also sets the booking URL. Other booking URLs stay as entered.', 'rise-landing-pages' ); ?></p>
+								<p><?php esc_html_e( 'Presets fill brand styling, the default logo and a maximum content width of 1860px. Physio and Fitness also fill locations and links. Medical fills its About link and booking URL while preserving other links. Each Rise brand sets its booking button text.', 'rise-landing-pages' ); ?></p>
 								<div class="rise-settings-presets__controls">
 									<label for="rise-brand-preset"><?php esc_html_e( 'Brand preset', 'rise-landing-pages' ); ?></label>
 									<select id="rise-brand-preset" aria-describedby="rise-preset-help">
@@ -739,7 +741,7 @@ final class Settings {
 					'text_color'        => array( 'label' => __( 'Main text colour', 'rise-landing-pages' ), 'type' => 'color', 'help' => __( 'Headings and main body text.', 'rise-landing-pages' ) ),
 					'muted_color'       => array( 'label' => __( 'Supporting text colour', 'rise-landing-pages' ), 'type' => 'color', 'help' => __( 'Secondary descriptions and supporting information.', 'rise-landing-pages' ) ),
 					'button_text_color' => array( 'label' => __( 'Button text colour', 'rise-landing-pages' ), 'type' => 'color', 'help' => __( 'Text on primary buttons.', 'rise-landing-pages' ) ),
-					'outline_color'     => array( 'label' => __( 'Outline text colour', 'rise-landing-pages' ), 'help' => __( 'Leave blank to use the primary colour. Enter a hex colour such as #61ffd6 or a colour name such as white or black.', 'rise-landing-pages' ) ),
+					'outline_color'     => array( 'label' => __( 'Outline text colour', 'rise-landing-pages' ), 'help' => __( 'Leave blank to use the site default. Enter a hex colour such as #61ffd6 or a colour name such as white or black.', 'rise-landing-pages' ) ),
 				),
 			),
 			'rise-typography' => array(

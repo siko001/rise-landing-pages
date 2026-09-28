@@ -29,7 +29,7 @@ final class Admin {
 	}
 
 	public function menu() {
-		$hook = add_menu_page( __( 'Rise Landing Pages', 'rise-landing-pages' ), __( 'Rise Landing Pages', 'rise-landing-pages' ), 'edit_pages', 'rise-landing-pages', '__return_null', 'dashicons-welcome-widgets-menus', 21 );
+		$hook = add_menu_page( __( 'Rise Landing Pages', 'rise-landing-pages' ), __( 'Landing Pages', 'rise-landing-pages' ), 'edit_pages', 'rise-landing-pages', '__return_null', 'dashicons-welcome-widgets-menus', 21 );
 		add_action( 'load-' . $hook, static function () { wp_safe_redirect( self::list_url() ); exit; } );
 		add_submenu_page( 'rise-landing-pages', __( 'All Landing Pages', 'rise-landing-pages' ), __( 'All Landing Pages', 'rise-landing-pages' ), 'edit_pages', 'rise-landing-pages', '__return_null' );
 		add_submenu_page( 'rise-landing-pages', __( 'Add Landing Page', 'rise-landing-pages' ), __( 'Add Landing Page', 'rise-landing-pages' ), 'edit_pages', self::create_url() );

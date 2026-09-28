@@ -162,6 +162,10 @@ export default function Hero( { attributes, setAttributes, clientId } ) {
 		resolvedOverlayColor = 'var(--rise-surface)';
 	} else if ( attributes.sectionBackground === 'offwhite' ) {
 		resolvedOverlayColor = '#f5f5f5';
+	} else if ( attributes.sectionBackground === 'white' ) {
+		resolvedOverlayColor = '#ffffff';
+	} else if ( attributes.sectionBackground === 'black' ) {
+		resolvedOverlayColor = '#000000';
 	}
 	return (
 		<SectionFrame
