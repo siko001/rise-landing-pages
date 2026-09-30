@@ -1843,6 +1843,14 @@ body.rise-lp-hide-site-header #page-container {
   gap: var(--rise-separator-gap, 24px);
 }
 
+.rise-lp .rise-lp__separator-track {
+  /* The animated transform isolates blending; give the icons a local backdrop,
+     including the area covered by the enlarged medical mark. */
+  background: inherit;
+  padding-block: 24px;
+  margin-block: -24px;
+}
+
 .rise-lp .rise-lp__separator-item {
   display: flex;
   flex: none;
