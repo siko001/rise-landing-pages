@@ -2,7 +2,7 @@
 
 Use the same `rise-landing-pages.zip` release on Rise Physio, Rise Fitness, and Rise Medical. Each WordPress installation keeps its own brand settings, pages, media, booking links, and updater credentials. Installing a plugin update does not apply a brand preset or replace that site's saved content.
 
-The updater is included from **1.1.80** and is configured for [siko001/rise-landing-pages](https://github.com/siko001/rise-landing-pages). Its source remote is `git@github.com:siko001/rise-landing-pages.git`. Regular commits to `main` can continue while development is in progress; sites receive updates only after a stable release with the packaged ZIP is published.
+The updater is included from **1.1.80** and is configured for [siko001/rise-landing-pages](https://github.com/siko001/rise-landing-pages). Its source remote is `git@github.com:siko001/rise-landing-pages.git`. Every push to `main` automatically builds and publishes a stable release with the packaged ZIP, matching Uptime Monitor. Sites receive it through the normal WordPress update button.
 
 ## Repository configuration
 
@@ -23,36 +23,23 @@ define( 'RISE_LP_GITHUB_TOKEN', 'YOUR_READ_ONLY_TOKEN' );
 
 Never put a token in the plugin, release ZIP, committed configuration, or release notes. The GitHub Actions workflow uses GitHub's built-in token; it does not need any site's personal access token. Follow GitHub's [fine-grained token instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) if repository or organization approval is required.
 
-## Build and publish a release
+## Automatic updates
 
-For every release, choose a new stable version such as `1.1.80` and keep these values aligned:
-
-- The `Version` plugin header and `RISE_LP_VERSION` constant in `rise-landing-pages.php`.
-- The `Stable tag` and changelog entry in `readme.txt`.
-- The top-level `version` in `package.json` and `package-lock.json`, plus `packages[""].version` in the lockfile.
-
-Run the checks in `TESTING.md`, then build an installable ZIP locally:
+Commit the plugin changes and push to `main`. The **Package plugin release** workflow chooses the next patch version from the existing stable tags, stamps the plugin header, constant, readme and package metadata in its build workspace, builds the assets, runs PHP and updater/release checks, packages `rise-landing-pages.zip`, and publishes a stable GitHub release with its tag. No manual tag, ZIP upload, or release publishing is needed.
 
 ```sh
-npm ci
-npm run build
-python3 scripts/package.py --version v1.1.80
+git add .
+git commit -m "Update Rise Landing Pages"
+git push origin main
 ```
 
-The packager rejects mismatched versions, prerelease versions, missing compiled assets, and symlinks. It writes `dist/rise-landing-pages.zip` with one top-level `rise-landing-pages/` folder. PHP runtime, block definitions, compiled editor and smooth-scroll assets, frontend/admin assets, fonts, logos, licenses, and deployment documentation are included. Development editor source, source maps, dependencies, fixtures, and tests are excluded. Identical inputs produce an identical ZIP.
+The workflow uses GitHub's built-in token; the repository must allow GitHub Actions to write contents/releases. Automatic stamping applies to the packaged files; it does not commit the generated version back to `main`. A source version above all existing tags is used as-is, allowing intentional minor or major version changes.
 
-Commit the prepared version and push an annotated tag:
+Manual `vX.Y.Z` tags and **Actions → Package plugin release → Run workflow** remain supported for selecting an exact version. The workflow stamps and packages that version, then publishes it. Existing draft releases receive the ZIP and are published automatically; already published releases are never overwritten. Avoid pushing both `main` and a manual tag for the same change unless two releases are intended.
 
-```sh
-git tag -a v1.1.80 -m "Rise Landing Pages 1.1.80"
-git push origin v1.1.80
-```
+After the workflow succeeds, use **Check for updates** if WordPress has not refreshed yet, then click **Update now**. Each site updates independently and keeps its saved settings and pages. There is no manual plugin upload for subsequent updates.
 
-The **Package plugin release** GitHub Actions workflow checks out that exact tag, installs the locked dependencies with Node 22, builds the assets, checks PHP syntax, updater regressions, and version alignment, then attaches `rise-landing-pages.zip` to a **draft release**. No separate Actions secret is needed. The repository must allow GitHub Actions and its workflow token to write repository contents/releases.
-
-Open the draft under GitHub **Releases**, review the release notes and ZIP, then publish it as a normal release. Marking it **Latest** makes the intended release clear on GitHub; the updater itself selects the highest numeric stable version. Publishing is the point at which configured sites can discover the update. Do not mark production releases as prereleases. The workflow can also be run from **Actions → Package plugin release → Run workflow** for an existing `vX.Y.Z` tag; reruns replace the ZIP only while that release remains a draft. Published releases require a new version and tag.
-
-If Actions is unavailable, upload the locally built `dist/rise-landing-pages.zip` to a draft GitHub release for the matching tag, then publish it as a normal stable release. GitHub's automatic **Source code (zip)** download is not the installable package. The updater requires the attached asset named exactly `rise-landing-pages.zip`; tags alone do not publish an update. GitHub documents the [release creation flow](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
+GitHub's automatic source archive is not the installable package. The updater uses the attached `rise-landing-pages.zip` built by this workflow.
 
 ## First installation on Physio, Fitness, and Medical
 

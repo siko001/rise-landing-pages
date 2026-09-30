@@ -4,7 +4,7 @@ Tags: landing-pages, block-editor, campaign, pages
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.81
+Stable tag: 1.1.82
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,9 @@ Create normal WordPress pages with a guided block editor, brand presets, optiona
 3. Choose Add Landing Page, edit the default sections, and publish.
 
 == Changelog ==
+= 1.1.82 =
+* Automatically publish the packaged WordPress update after pushes to main, matching Uptime Monitor.
+
 = 1.1.81 =
 * Fix the Medical separator icon background during ticker animation.
 

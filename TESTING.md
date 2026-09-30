@@ -4,6 +4,8 @@ This build was checked on 23 September 2026 on local Rise Physio (WordPress 7.1,
 
 ## Automated checks
 
+- For 1.1.82, `python3 tests/release.py` checks automatic patch selection, numeric tag ordering, prerelease exclusion, intentional source version bumps, initial releases, explicit tags, and rejection of invalid tags. Each valid result passes the packaging version alignment check.
+
 - For 1.1.81, a headless Chrome fixture reproduced the black Medical icon background with the original animated track and verified the fix on Medical, black, Fitness, Physio, and white backgrounds. Stationary and transformed tracks retain a 128px separator height.
 
 - For 1.1.80, `php tests/updater.php` passed 64 isolated assertions for stable release selection, missing/unconfigured repositories, cache reuse and forced refresh, update metadata, permissions/nonces, error notices, public/private downloads, credential isolation across redirects, failed-download cleanup, and preservation of canonical and development installation folders. PHP syntax checks and the production asset build passed. Packaging checked matching versions and produced the canonical ZIP with updater/configuration and runtime assets. The local WordPress database was unavailable, and no release has been published yet, so the first real release check and upgrade remain deployment checks. The updater is now configured for `siko001/rise-landing-pages`. The available PHP runtime is 8.4; the new updater uses PHP 7.4-compatible syntax, but the exact minimum runtime was not available.

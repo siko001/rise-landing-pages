@@ -2,6 +2,8 @@ name: Package plugin release
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v[0-9]*'
   workflow_dispatch:
@@ -15,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: release-${{ inputs.tag || github.ref_name }}
+  group: plugin-release
   cancel-in-progress: false
 
 jobs:
@@ -24,21 +26,23 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: write
-    env:
-      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     steps:
-      - name: Validate stable tag
-        shell: bash
-        run: |
-          if [[ ! "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
-            echo 'Release tags must use vX.Y.Z with no prerelease suffix.' >&2
-            exit 1
-          fi
-
       - uses: actions/checkout@v7
         with:
-          ref: refs/tags/${{ inputs.tag || github.ref_name }}
+          ref: ${{ inputs.tag || github.sha }}
+          fetch-depth: 0
           persist-credentials: false
+
+      - name: Choose and stamp release version
+        env:
+          REQUESTED_TAG: ${{ inputs.tag || (github.ref_type == 'tag' && github.ref_name) || '' }}
+        run: |
+          if [[ -n "$REQUESTED_TAG" ]]; then
+            tag=$(python3 scripts/prepare-release.py --tag "$REQUESTED_TAG")
+          else
+            tag=$(python3 scripts/prepare-release.py)
+          fi
+          echo "RELEASE_TAG=$tag" >> "$GITHUB_ENV"
 
       - uses: actions/setup-node@v7
         with:
@@ -56,15 +60,18 @@ jobs:
           find src templates config -name '*.php' -print0 | xargs -0 -n1 php -l
 
       - name: Check updater regressions
-        run: php tests/updater.php
+        run: |
+          php tests/updater.php
+          python3 tests/release.py
 
       - name: Validate versions and package runtime
         run: python3 scripts/package.py --version "$RELEASE_TAG"
 
-      - name: Attach ZIP to a draft release
+      - name: Publish the WordPress update ZIP
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          RELEASE_COMMIT: ${{ github.sha }}
         shell: bash
         run: |
           if draft=$(gh release view "$RELEASE_TAG" --json isDraft --jq '.isDraft' 2>/dev/null); then
@@ -73,8 +80,9 @@ jobs:
               exit 1
             fi
             gh release upload "$RELEASE_TAG" dist/rise-landing-pages.zip --clobber
+            gh release edit "$RELEASE_TAG" --draft=false --latest
           else
             gh release create "$RELEASE_TAG" dist/rise-landing-pages.zip \
-              --verify-tag --draft --title "Rise Landing Pages $RELEASE_TAG" --generate-notes
+              --target "$RELEASE_COMMIT" --latest --title "Rise Landing Pages $RELEASE_TAG" --generate-notes
           fi
-          echo 'The installable ZIP is attached to a draft release. Publish it as the latest stable release when ready.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'The installable ZIP is published. WordPress Check for updates can now find it.' >> "$GITHUB_STEP_SUMMARY"
