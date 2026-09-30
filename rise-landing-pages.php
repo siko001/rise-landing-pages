@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rise Landing Pages
  * Description: Independent, branded campaign pages with a guided Gutenberg editor.
- * Version: 1.1.80
+ * Version: 1.1.81
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: Rise
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'RISE_LP_VERSION', '1.1.80' );
+define( 'RISE_LP_VERSION', '1.1.81' );
 define( 'RISE_LP_FILE', __FILE__ );
 define( 'RISE_LP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'RISE_LP_URL', plugin_dir_url( __FILE__ ) );
