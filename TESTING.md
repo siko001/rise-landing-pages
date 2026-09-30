@@ -4,6 +4,8 @@ This build was checked on 23 September 2026 on local Rise Physio (WordPress 7.1,
 
 ## Automated checks
 
+- For 1.1.83, headless Chrome checked right-aligned Hero headings, descriptions, reassurance and both buttons in frontend and editor styles at 375px and 1440px for split, overlay and text-only layouts. All 12 combinations aligned correctly without horizontal overflow; the editor build passed.
+
 - For 1.1.82, `python3 tests/release.py` checks automatic patch selection, numeric tag ordering, prerelease exclusion, intentional source version bumps, initial releases, explicit tags, and rejection of invalid tags. Each valid result passes the packaging version alignment check.
 
 - For 1.1.81, a headless Chrome fixture reproduced the black Medical icon background with the original animated track and verified the fix on Medical, black, Fitness, Physio, and white backgrounds. Stationary and transformed tracks retain a 128px separator height.

@@ -93,7 +93,7 @@
 		"alignment": {
 			"type": "string",
 			"default": "left",
-			"enum": [ "left", "center" ]
+			"enum": [ "left", "center", "right" ]
 		},
 		"headingLeading": {
 			"type": "number",

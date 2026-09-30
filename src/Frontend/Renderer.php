@@ -317,7 +317,8 @@ class Renderer {
 
 	private static function hero( $attributes, $block = null ) {
 		$id        = wp_unique_id( 'rise-hero-' );
-		$alignment = 'center' === self::value( $attributes, 'alignment' ) ? 'center' : 'left';
+		$alignment = self::value( $attributes, 'alignment', 'left' );
+		$alignment = in_array( $alignment, array( 'left', 'center', 'right' ), true ) ? $alignment : 'left';
 		$image     = self::image( $attributes, 'rise-lp__hero-image', true );
 		$mobile_id = absint( self::value( $attributes, 'mobileImageId' ) );
 		$mobile    = esc_url( self::value( $attributes, 'mobileImageUrl' ) );

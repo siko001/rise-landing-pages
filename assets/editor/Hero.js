@@ -364,6 +364,10 @@ export default function Hero( { attributes, setAttributes, clientId } ) {
 								label: __( 'Centred', 'rise-landing-pages' ),
 								value: 'center',
 							},
+							{
+								label: __( 'Right', 'rise-landing-pages' ),
+								value: 'right',
+							},
 						] }
 						onChange={ ( alignment ) =>
 							setAttributes( { alignment } )
